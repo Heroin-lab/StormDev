@@ -1,25 +1,13 @@
 function check() {
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < arrObjects.length; i++){
         var pattern = document.getElementById('sample').content;
         var copyHTML = document.importNode(pattern, true);
-        copyHTML.querySelector(".name").textContent = name[i].name;
+        copyHTML.querySelector(".name").textContent = arrObjects[i].name;
         copyHTML.querySelector(".age").textContent = arrObjects[i].age;
         copyHTML.querySelector(".descript").textContent = arrObjects[i].description;
         document.getElementById("app").appendChild(copyHTML);
     } 
 }
-
-
-
-
-// check();
-
-
-
-
-
-
-
 
 // var arrObjects = [];
 
@@ -53,6 +41,10 @@ function check() {
 //     description: 'This guy is my teammate',
 // }
 
-// var jsonObject = JSON.stringify(arrObjects);
+// check();
 
-// console.log(jsonObject);
+var requestURL = 'http://localhost:8000/';
+
+var xhr = new XMLHttpRequest();
+
+xhr.open(GET, requestURL);
