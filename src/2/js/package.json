@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "file-system": "^2.2.2",
+    "http-errors": "^1.8.0",
+    "node-require": "^0.0.10"
+  }
+}
