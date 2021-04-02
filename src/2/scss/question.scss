@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background: url('..//img/pacific-ocean-nature-beach-stormy-beaches-92i8.jpg') center center/cover no-repeat;
+    min-height: 754px;
+}
+.questions {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        .questions__wrapper {
+            display: flex;
+            justify-content: space-between;
+            .logo {
+                display: flex;
+                justify-content: space-between;
+                &__img {
+                    width: 114px;
+                    height: 103px;
+
+                }
+                &__title {
+                    margin-top: 30px;
+                    color: #333333;
+                    font-style: italic;
+                    font-weight: bold;
+                    font-size: 36px;
+                }
+            }
+            .nav {
+                ul {
+                    list-style: none;
+                    .nav__list {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &-item {
+                            display: inline-block;
+                            font-weight: bold;
+                            font-size: 24px;
+                            padding: 24px 10px 20px;
+                            color: #333333;
+                            margin: 0 6px;
+                            border-bottom: 4px solid transparent;
+                            transition: all 0.5s;
+                            cursor: pointer;
+                        }
+                            &-item:hover {
+                                border-bottom: 2px solid #00A4E5;
+                        }
+                    }
+                }
+            }
+        }
+        .questions__select {
+            margin-top: 30px;
+            .select {
+                display: block;
+                padding: 10px;
+                font-size: 16px;
+                font-weight: 700;
+                width: 250px;
+                height: 47px;
+                border: 2px solid;
+                cursor: pointer;
+                &__value{
+                   font-size: 15px;
+                }
+            }
+        }
+        .project {
+            display: flex;  
+            width: 1176px;
+            height: 360px;
+            margin-top: 50px;
+            background-color: #ffffff;
+            &__img {
+                width: 65px;
+                height: 75px;
+                margin-top: 20px;
+                margin-left: 15px;
+            }
+            &__item {
+                margin-left: 25px;
+                margin-top: 20px;
+                .project__title {
+                    color: #48555B;
+                    font-weight: bold;
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+                .project__text {
+                    margin-top: 15px;
+                    font-size: 13px;
+                    line-height: 23px;
+                    color: #48555B;
+                }
+            }
+        }
+    }
+}

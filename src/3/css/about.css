@@ -1,0 +1,115 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url("..//img/pacific-ocean-nature-beach-stormy-beaches-92i8.jpg") center center/cover no-repeat;
+  min-height: 754px;
+}
+
+.questions .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.questions .container .questions__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.questions .container .questions__wrapper .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.questions .container .questions__wrapper .logo__img {
+  width: 114px;
+  height: 103px;
+}
+
+.questions .container .questions__wrapper .logo__title {
+  margin-top: 30px;
+  color: #333333;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.questions .container .questions__wrapper .nav ul {
+  list-style: none;
+}
+
+.questions .container .questions__wrapper .nav ul .nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.questions .container .questions__wrapper .nav ul .nav__list-item {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 24px 10px 20px;
+  color: #333333;
+  margin: 0 6px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.questions .container .questions__wrapper .nav ul .nav__list-item:hover {
+  border-bottom: 2px solid #00A4E5;
+}
+
+.questions .container .project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1176px;
+  height: 450px;
+  margin-top: 50px;
+  background-color: #ffffff;
+}
+
+.questions .container .project__img {
+  width: 65px;
+  height: 75px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.questions .container .project__item {
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+.questions .container .project__item .project__title {
+  color: #48555B;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.questions .container .project__item .project__text {
+  margin-top: 15px;
+  font-size: 13px;
+  line-height: 23px;
+  color: #48555B;
+}
