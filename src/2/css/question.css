@@ -101,9 +101,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: center; /* */
+  flex-direction: column;
+  justify-content: start; /* */
+  align-items: center; /* */
   width: 1176px;
-  height: 360px;
+  height: 560px;
   margin-top: 50px;
   border-radius: 3px; /* */
   background-color: #ffffff;
@@ -112,7 +114,7 @@ body {
 .project__question-block { /* */
   display: flex;
   max-width: 1174px;
-  max-height: 130px;
+  max-height: 160px;
   margin-top: 1px;
   border-radius: 3px;
   border: 1px solid rgb(215, 215, 215);
