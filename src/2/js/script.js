@@ -1,19 +1,19 @@
 var requestURL = 'http://localhost:8080/';
 var xhr = new XMLHttpRequest();
-var result = [];
 
 
 var getReq = function(url) {
     var result;
     xhr.open('GET', requestURL + url);
     xhr.onload = function() {
+        console.log(xhr.response);
         result = JSON.parse(xhr.response);
-        check(result);
+        jsonTemplate(result);
     }
     xhr.send();
 }
 
-var check = function(arrObjects) {
+var jsonTemplate = function(arrObjects) {
     for (var i = 0; i < arrObjects.length; i++){
         var pattern = document.getElementById('sample').content;
         var copyHTML = document.importNode(pattern, true);
@@ -24,4 +24,4 @@ var check = function(arrObjects) {
     } 
 }
 
-getReq('question');
+getReq('question/csv');

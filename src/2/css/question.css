@@ -113,12 +113,16 @@ body {
 
 .project__question-block { /* */
   display: flex;
-  max-width: 1174px;
+  min-width: 1174px;
   max-height: 160px;
   margin-top: 1px;
   border-radius: 3px;
   border: 1px solid rgb(215, 215, 215);
 } /* */
+
+.project__answer {
+  margin: 10px 0 5px 0;
+}
 
 .questions .container .project__img {
   width: 65px;

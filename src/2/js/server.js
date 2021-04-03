@@ -1,5 +1,6 @@
 var fs = require('fs');
 var http = require('http');
+var csv = require('csvtojson');
 
 var { json } = require('body-parser')
 var jsonParser = json();
@@ -37,10 +38,21 @@ function handlerRequest(request,response){
       response.end('success');
     })
   }
-  if(request.url === '/question' && request.method === 'GET'){
-    var data = fs.readFileSync('question.json');
+  if(request.url === '/question/json' && request.method === 'GET'){
+    var data = fs.readFileSync('../allQuestions/question.json');
     response.writeHead(200,headers);
     response.end(data);
+    return;
+  }
+  if(request.url === '/question/csv' && request.method === 'GET'){
+    var data = '';
+      csv({delimiter:';'})
+        .fromFile('../allQuestions/question.csv')
+        .then(function(jsonArr){
+          data = JSON.stringify(jsonArr);
+          response.writeHead(200,headers);
+          response.end(data);
+        })
     return;
   }
 }
