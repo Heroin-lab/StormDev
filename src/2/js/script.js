@@ -25,4 +25,4 @@ var jsonTemplate = function(arrObjects) {
     } 
 }
 
-getReq('question/xml');
+getReq('question/yaml');

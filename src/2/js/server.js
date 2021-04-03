@@ -1,6 +1,7 @@
 var fs = require('fs');
 var http = require('http');
 var csv = require('csvtojson');
+var yaml = require('js-yaml');
 
 var xml2json = require('xml2js');
 var xmlParser = new xml2json.Parser();
@@ -66,6 +67,13 @@ function handlerRequest(request,response){
         response.end(data);
       })
     });
+    return;
+  }
+  if(request.url === '/question/yaml' && request.method === 'GET'){
+    var file = fs.readFileSync('../allQuestions/question.yaml');
+    var data = JSON.stringify(yaml.load(file));
+    response.writeHead(200,headers);
+    response.end(data);
     return;
   }
 }
