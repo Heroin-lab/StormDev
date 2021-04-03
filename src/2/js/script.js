@@ -8,6 +8,7 @@ var getReq = function(url) {
     xhr.onload = function() {
         console.log(xhr.response);
         result = JSON.parse(xhr.response);
+        console.log(result);
         jsonTemplate(result);
     }
     xhr.send();
@@ -24,4 +25,4 @@ var jsonTemplate = function(arrObjects) {
     } 
 }
 
-getReq('question/csv');
+getReq('question/xml');

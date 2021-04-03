@@ -2,6 +2,9 @@ var fs = require('fs');
 var http = require('http');
 var csv = require('csvtojson');
 
+var xml2json = require('xml2js');
+var xmlParser = new xml2json.Parser();
+
 var { json } = require('body-parser')
 var jsonParser = json();
 
@@ -52,7 +55,17 @@ function handlerRequest(request,response){
           data = JSON.stringify(jsonArr);
           response.writeHead(200,headers);
           response.end(data);
-        })
+        });
+    return;
+  }
+  if(request.url === '/question/xml' && request.method === 'GET'){
+    var data = fs.readFile('../allQuestions/question.xml', function(err, data){
+      xmlParser.parseString(data, function(err, result){
+        data = JSON.stringify(result);
+        response.writeHead(200,headers);
+        response.end(data);
+      })
+    });
     return;
   }
 }
