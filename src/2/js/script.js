@@ -1,22 +1,41 @@
-var requestURL = 'http://localhost:8080/';
+var requestURL = 'http://localhost:8080/question/';
 var xhr = new XMLHttpRequest();
 
 
-var getReq = function(url) {
+var getReq = function(fileExtension) {
     var result;
-    xhr.open('GET', requestURL + url);
+    xhr.open('GET', requestURL + fileExtension);
     xhr.onload = function() {
-        console.log(xhr.response);
         result = JSON.parse(xhr.response);
-        console.log(result);
-        jsonTemplate(result);
+        if (fileExtension === 'json' || fileExtension === 'csv'){
+            templateParser(result);
+        } else if (fileExtension === 'xml'){
+            xmlParser(result);
+        } else if (fileExtension === 'yaml'){
+            templateParser(result.questions);
+        }
     }
     xhr.send();
 }
 
-var jsonTemplate = function(arrObjects) {
+var xmlParser = function(reqResult) {
+    var objArrays = reqResult.quest;
+    var buffer = [];
+    for (var i = 0; i < objArrays.id.length; i++){
+        xz = {
+            id: objArrays.id[i],
+            theme: objArrays.theme[i],
+            quesText: objArrays.quesText[i],
+            correctAnsw: objArrays.correctAnsw[i],
+        }
+        buffer.push(xz);
+    }
+    templateParser(buffer);
+}
+
+var templateParser = function(arrObjects) {
     for (var i = 0; i < arrObjects.length; i++){
-        var pattern = document.getElementById('sample').content;
+        var pattern = document.querySelector('.sample').content;
         var copyHTML = document.importNode(pattern, true);
         copyHTML.querySelector(".project__title").textContent = arrObjects[i].theme;
         copyHTML.querySelector(".project__text").textContent = arrObjects[i].quesText;
@@ -25,4 +44,36 @@ var jsonTemplate = function(arrObjects) {
     } 
 }
 
-getReq('question/yaml');
+var fileSystem = document.querySelector('.select');
+
+fileSystem.addEventListener('change', reqCall);
+
+function reqCall() {
+    var extensionName = '';
+    clearTemplate();
+    switch(fileSystem.value){
+        case 'json': extensionName = 'json'
+        break;
+
+        case 'csv': extensionName = 'csv'
+        break;
+
+        case 'xml': extensionName = 'xml'
+        break;
+
+        case 'yaml': extensionName = 'yaml'
+        break;
+
+        default: 'json'
+            break;
+    }
+    getReq(extensionName);
+}
+
+function clearTemplate() {
+    var parent = document.querySelector('.project');
+    var block = document.querySelector('.project__question-block');
+    parent.removeChild(block);
+}
+
+getReq('json');
