@@ -78,9 +78,18 @@ body {
   border-bottom: 2px solid #00A4E5;
 }
 
-.questions .container .questions__select {
-  display: inline-block;
+.questions__select-block {
+  display: flex;
   margin-top: 30px;
+  justify-content: flex-start;
+}
+
+.questions__select-block .popup-open {
+  
+}
+
+.questions .container .questions__select:nth-last-child(1) {
+  margin-left: 5px;
 }
 
 .questions .container .questions__select .select {

@@ -24,21 +24,24 @@
                     </ul>
                 </div>
             </div>
-            <div class="questions__select">
-                <select name="select" class="select">
-                    <option class="select__value" value="json">JSON file system</option>
-                    <option class="select__value" value="csv">CSV questions theme</option>
-                    <option class="select__value" value="xml">XML questions theme</option>
-                    <option class="select__value" value="yaml">YAML questions theme</option>
-                </select>            
-            </div>
-            <div class="questions__select">
-                <select name="select" class="select theme">
-                    <option class="select__value" value="all">All</option>
-                    <option class="select__value" value="js">JavaScript</option>
-                    <option class="select__value" value="html">Html</option>
-                    <option class="select__value" value="css">Css</option>
-                </select>            
+            <div class="questions__select-block">
+                <div class="questions__select">
+                    <select name="select" class="select">
+                        <option class="select__value" value="json">JSON file system</option>
+                        <option class="select__value" value="csv">CSV questions theme</option>
+                        <option class="select__value" value="xml">XML questions theme</option>
+                        <option class="select__value" value="yaml">YAML questions theme</option>
+                    </select>            
+                </div>
+                <div class="questions__select">
+                    <select name="select" class="select theme">
+                        <option class="select__value" value="all">All</option>
+                        <option class="select__value" value="js">JavaScript</option>
+                        <option class="select__value" value="html">Html</option>
+                        <option class="select__value" value="css">Css</option>
+                    </select>            
+                </div>
+                <!-- <div class="popup-open">&#10010;</div> -->
             </div>
             <div class="project">
                 <template class="sample">
@@ -59,5 +62,6 @@
         </div>
     </section>
     <script src="js/script.js"></script>
+    <script src="js/fileEditor.js"></script>
 </body>
 </html>
