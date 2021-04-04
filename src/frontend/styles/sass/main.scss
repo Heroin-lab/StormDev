@@ -8,9 +8,10 @@
 body {
   background: url('../../assets/img/background.png') center center/cover no-repeat;
   min-height: 754px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
+
 .nav__list{
   display: flex;
   justify-content: center;
@@ -41,6 +42,13 @@ body {
   max-width: $container-width;
   margin: 0 auto;
   padding: 0 15px;
+  button{
+    border: 1px solid #080808; /* Параметры рамки */
+    background: #fffdfe; /* Цвет фона */
+    font-size: 12px; /* Размер текста */
+    padding: 5px 20px; /* Поля вокруг текста */
+    margin: 10px 5px;
+  }
 }
 
 .questions__wrapper {
@@ -84,8 +92,8 @@ body {
 }
 .row {
   display: flex;
-  justify-content: space-between;
-  margin-top: 100px;
+  justify-content:space-between;
+  margin-top: 30px;
   margin-bottom: 100px;
 }
 .anketa {
@@ -93,14 +101,60 @@ body {
   min-height:$anketa-heigth;
   background-color: white;
   &__content{
+    height: 420px;
+
     &__name{
-      text-align: center;
+      input{
+        margin: 5px;
+        padding: 5px;
+        width: 100%;
+        max-width: 90%;
+        max-height: 50px;
+        margin-bottom: 10px;
+        font-size: medium;
+                
+      }
+    }
+    &__about{
+      &-item{
+        font-size: medium;
+        input{
+          width: 100%;
+          max-width: 90%;
+          max-height: 50px;
+          margin-bottom: 10px;
+          font-size: medium;
+          border-style: hidden;
+        }
+      }
+      
+    }
+    &__hobby{
+      display: flex;
+      justify-content: center;
+      textarea{
+        width: 80%;
+        max-width: 90%;
+        max-height: 85px;
+        margin-bottom: 10px;
+        font-size:medium;
+        align-content: center;
+      }
+    }
+    &__name{
+      display: flex;
+      justify-content: center;
+      input{
+        width:45%;
+        text-align: center;
+        
+      }
     }
   }
   &__pic{
     &-img{
       width:$anketa-width;
-      height: 117px;    
+      height: 300px;    
     }
   }
 }
