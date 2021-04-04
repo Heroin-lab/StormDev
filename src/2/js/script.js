@@ -1,6 +1,12 @@
 var requestURL = 'http://localhost:8080/question/';
 var xhr = new XMLHttpRequest();
+var themeName = 'all';
 
+var extensionFilter = document.querySelector('.select');
+var themeFilter = document.querySelector('.theme');
+
+themeFilter.addEventListener('change', selectTheme);
+extensionFilter.addEventListener('change', reqCall);
 
 var getReq = function(fileExtension) {
     var result;
@@ -8,11 +14,11 @@ var getReq = function(fileExtension) {
     xhr.onload = function() {
         result = JSON.parse(xhr.response);
         if (fileExtension === 'json' || fileExtension === 'csv'){
-            templateParser(result);
+            themeDecoder(result);
         } else if (fileExtension === 'xml'){
             xmlParser(result);
         } else if (fileExtension === 'yaml'){
-            templateParser(result.questions);
+            themeDecoder(result.questions);
         }
     }
     xhr.send();
@@ -30,28 +36,12 @@ var xmlParser = function(reqResult) {
         }
         buffer.push(xz);
     }
-    templateParser(buffer);
+    themeDecoder(buffer);
 }
-
-var templateParser = function(arrObjects) {
-    for (var i = 0; i < arrObjects.length; i++){
-        var pattern = document.querySelector('.sample').content;
-        var copyHTML = document.importNode(pattern, true);
-        copyHTML.querySelector(".project__title").textContent = arrObjects[i].theme;
-        copyHTML.querySelector(".project__text").textContent = arrObjects[i].quesText;
-        copyHTML.querySelector(".project__answer").textContent = arrObjects[i].correctAnsw;
-        document.querySelector(".project").appendChild(copyHTML);
-    } 
-}
-
-var fileSystem = document.querySelector('.select');
-
-fileSystem.addEventListener('change', reqCall);
 
 function reqCall() {
     var extensionName = '';
-    clearTemplate();
-    switch(fileSystem.value){
+    switch(extensionFilter.value){
         case 'json': extensionName = 'json'
         break;
 
@@ -70,10 +60,51 @@ function reqCall() {
     getReq(extensionName);
 }
 
-function clearTemplate() {
-    var parent = document.querySelector('.project');
-    var block = document.querySelector('.project__question-block');
-    parent.removeChild(block);
+function selectTheme() {
+    themeName = themeFilter.value;
+    getReq(extensionFilter.value);  
 }
+
+function themeDecoder(serverRes){
+    var container = [];
+    for (var i = 0; i < serverRes.length; i++){
+        if (themeName === 'all'){
+            container = serverRes;
+            break; 
+        } else if (themeName === 'js' && serverRes[i].theme === 'js'){
+            container.push(serverRes[i]);
+        } else if (themeName === 'html' && serverRes[i].theme === 'html'){
+            container.push(serverRes[i]);
+        } else if (themeName === 'css' && serverRes[i].theme === 'css'){
+            container.push(serverRes[i]);
+        } else {
+            console.log('error');
+        }
+    }
+    templateParser(container);
+};
+
+function clearTemplate() {
+    var count = document.querySelector('.project').childElementCount;
+    for (var k = 0; k < count - 1; k++){
+        parent = document.querySelector('.project');
+        block = document.querySelector('.project__question-block');
+        parent.removeChild(block);
+    }
+}
+
+var templateParser = function(arrObjects) {
+    clearTemplate();
+    for (var i = 0; i < arrObjects.length; i++){
+        var pattern = document.querySelector('.sample').content;
+        var copyHTML = document.importNode(pattern, true);
+        copyHTML.querySelector(".project__title").textContent = arrObjects[i].theme;
+        copyHTML.querySelector(".project__text").textContent = arrObjects[i].quesText;
+        copyHTML.querySelector(".project__answer").textContent = arrObjects[i].correctAnsw;
+        document.querySelector(".project").appendChild(copyHTML);
+    } 
+}
+
+
 
 getReq('json');
