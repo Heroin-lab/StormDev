@@ -24,12 +24,8 @@ var getReq = function(fileExtension) {
     xhr.send();
 }
 
-function postReq() {
-    xhr.open('POST', requestURL + 'add')
-    
-}
-
 var xmlParser = function(reqResult) {
+    console.log(reqResult.quest);
     var objArrays = reqResult.quest;
     var buffer = [];
     for (var i = 0; i < objArrays.id.length; i++){

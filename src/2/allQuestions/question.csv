@@ -1,9 +1,8 @@
-id; theme; quesText; correctAnsw;
-1;js; Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?; true;
-2;js; Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?; false; 
-3;js; loreim1 ipsum; true;
-4;js; loreim1 ipsum; true;
-5;html; loreim1 ipsum; true;
-6;html; loreim1 ipsum; true;
-7;css; loreim1 ipsum; true;
-8;css; loreim1 ipsum; true;
+id,theme,quesText,correctAnsw,
+1,js,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?",true,
+2,js,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?",false, 
+3,js,"loreim1 ipsum",true,
+4,js,"loreim1 ipsum",true,
+5,html,"loreim1 ipsum",true,
+6,html,"loreim1 ipsum",true,
+

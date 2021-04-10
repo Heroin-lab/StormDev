@@ -1,32 +1,34 @@
-<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<quest>
-    <id>Tove1</id>
-    <theme>js</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>False</correctAnsw>
-
-    <id>Tove2</id>
-    <theme>css</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>True</correctAnsw>
-
-    <id>Tove2</id>
-    <theme>css</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>True</correctAnsw>
-
-    <id>Tove2</id>
-    <theme>html</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>True</correctAnsw>
-
-    <id>Tove2</id>
-    <theme>html</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>True</correctAnsw>
-
-    <id>Tove2</id>
-    <theme>css</theme>
-    <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
-    <correctAnsw>True</correctAnsw>
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?><quest>
+  <id>Tove1</id>
+  <id>Tove2</id>
+  <id>Tove2</id>
+  <id>Tove2</id>
+  <id>Tove2</id>
+  <id>Tove2</id>
+  <id>8</id>
+  <id>8</id>
+  <theme>js</theme>
+  <theme>css</theme>
+  <theme>css</theme>
+  <theme>html</theme>
+  <theme>html</theme>
+  <theme>old</theme>
+  <theme>New</theme>
+  <theme>New</theme>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>New ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <quesText>New ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</quesText>
+  <correctAnsw>False</correctAnsw>
+  <correctAnsw>True</correctAnsw>
+  <correctAnsw>True</correctAnsw>
+  <correctAnsw>True</correctAnsw>
+  <correctAnsw>True</correctAnsw>
+  <correctAnsw>True</correctAnsw>
+  <correctAnsw>false</correctAnsw>
+  <correctAnsw>false</correctAnsw>
 </quest>

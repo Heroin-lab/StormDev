@@ -1,10 +1,14 @@
 var fs = require('fs');
 var http = require('http');
+
 var csv = require('csvtojson');
+var ObjectsToCsv = require('objects-to-csv');
 var yaml = require('js-yaml');
 
 var xml2json = require('xml2js');
+var obj2xml = require('object-to-xml');
 var xmlParser = new xml2json.Parser();
+
 
 var { json } = require('body-parser')
 var jsonParser = json();
@@ -50,7 +54,7 @@ function handlerRequest(request,response){
   }
   if(request.url === '/question/csv' && request.method === 'GET'){
     var data = '';
-      csv({delimiter:';'})
+      csv({delimiter:','})
         .fromFile('../allQuestions/question.csv')
         .then(function(jsonArr){
           data = JSON.stringify(jsonArr);
@@ -76,6 +80,55 @@ function handlerRequest(request,response){
     response.end(data);
     return;
   }
+  // if(request.url === '/question/add' && request.method === 'POST'){
+  //   jsonParser(request,response,function(error){
+  //     if(error){
+  //       throw error;
+  //     } 
+  //     var devs = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
+  //     devs.push(request.body);
+  //     fs.writeFileSync('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
+  //     response.writeHead(200,headers);
+  //     response.end('success');
+  //   })
+  // }
+  // if(request.url === '/question/add' && request.method === 'POST'){
+  //   jsonParser(request,response,function(error){
+  //     if(error){
+  //       throw error;
+  //     } 
+  //     var devs = '';
+  //     csv({delimiter:','})
+  //       .fromFile('../allQuestions/question.csv')
+  //       .then(function(jsonArr){
+  //         jsonArr.push(request.body);
+  //         data = new ObjectsToCsv(jsonArr);
+  //         data.toDisk('../allQuestions/question.csv');
+  //       });
+  //       response.writeHead(200,headers);
+  //       response.end('success');
+  //     return;
+  //   })
+  // if(request.url === '/question/add' && request.method === 'POST'){
+  //   jsonParser(request,response,function(error){
+  //     if(error){
+  //       throw error;
+  //     } 
+  //     var data = fs.readFile('../allQuestions/question.xml', function(err, data){
+  //       xmlParser.parseString(data, function(err, result){
+  //       result.quest.id.push(`${request.body.id}`);
+  //       result.quest.theme.push(request.body.theme);
+  //       result.quest.quesText.push(request.body.quesText);
+  //       result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
+  //       var xmldata = obj2xml(result);
+  //       xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
+  //       fs.writeFileSync('../allQuestions/question.xml', xmldata);
+  //       })
+  //     })
+  //     response.writeHead(200,headers);
+  //     response.end('success');
+  //     return;
+  //   })
 }
 
 console.log(`Server is running on http://${host}:${PORT}`);
