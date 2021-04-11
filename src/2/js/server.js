@@ -93,9 +93,9 @@ function handlerRequest(request,response){
         throw error;
       } 
       var devs = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
+      request.body.id = devs.length + 1;
       devs.push(request.body);
       fs.writeFileSync('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
-      console.log('work');
       response.writeHead(200,headers);
       response.end('success');
     })
@@ -109,11 +109,11 @@ function handlerRequest(request,response){
       csv({delimiter:','})
         .fromFile('../allQuestions/question.csv')
         .then(function(jsonArr){
+          request.body.id = jsonArr.length + 1;
           jsonArr.push(request.body);
           data = new ObjectsToCsv(jsonArr);
           data.toDisk('../allQuestions/question.csv');
         });
-        console.log('work');
         response.writeHead(200,headers);
         response.end('success');
       return;
@@ -127,6 +127,9 @@ function handlerRequest(request,response){
       } 
       var data = fs.readFileSync('../allQuestions/question.xml');
         xmlParser.parseString(data, function(err, result){
+          if (result.quest.id !== undefined) {
+            request.body.id = result.quest.id.length + 1;
+          } else { request.body.id = 1}
         result.quest.id.push(`${request.body.id}`);
         result.quest.theme.push(request.body.theme);
         result.quest.quesText.push(request.body.quesText);
@@ -134,7 +137,6 @@ function handlerRequest(request,response){
         var xmldata = obj2xml(result);
         xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
         fs.writeFileSync('../allQuestions/question.xml', xmldata);
-        console.log('work');
       })
       response.writeHead(200,headers);
       response.end('success');
@@ -147,16 +149,15 @@ function handlerRequest(request,response){
       if(error){
         throw error;
       } 
-      console.log('work2');
-    var file = fs.readFileSync('../allQuestions/question.yaml');
-    var data = 
-      `\n    - id: ${request.body.id}
-      theme: ${request.body.theme}
-      quesText: ${request.body.quesText}
-      correctAnsw: ${request.body.correctAnsw} `;
-    file += data
-    fs.writeFileSync('../allQuestions/question.yaml', file);
-    console.log('work');
+      var file = fs.readFileSync('../allQuestions/question.yaml');
+      var id = yaml.load(file).questions;
+      var data = 
+        `\n  - id: ${id.length + 1}
+    theme: ${request.body.theme}
+    quesText: ${request.body.quesText}
+    correctAnsw: ${request.body.correctAnsw} `;
+        file += data
+        fs.writeFileSync('../allQuestions/question.yaml', file);
     response.writeHead(200,headers);
     response.end('success');
     return;

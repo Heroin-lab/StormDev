@@ -40,7 +40,6 @@ var xmlParser = function(reqResult) {
 }
 
 function reqCall() {
-    console.log('reqCall work');
     var extensionName = '';
     switch(extensionFilter.value){
         case 'json': extensionName = 'json'
@@ -67,7 +66,6 @@ function selectTheme() {
 }
 
 function themeDecoder(serverRes){
-    console.log(themeFilter.value);
     var container = [];
     for (var i = 0; i < serverRes.length; i++){
         if (themeName === 'all'){

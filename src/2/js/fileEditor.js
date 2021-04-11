@@ -1,7 +1,11 @@
-var createQuestion = document.querySelector('.popup__modal-button1');
 var deletQuestion = document.querySelector('.project__delete-button');
+var radioButtons = document.querySelector('.radio-True');
 
-createQuestion.addEventListener('click', questionCheckBoxes);
+var reqCounter = 0;  
+var checkBoxArr = [];
+var radioStatus = "false";
+
+radioButtons.addEventListener('change', changeRadio);
 
 function postReq(body, url) {
     return new Promise(function(resolve,reject){
@@ -14,30 +18,17 @@ function postReq(body, url) {
     });
 }
 
-var reqCounter = 0;  
-var checkBoxArr = [];
-
-function questionCheckBoxes(){
-    var csvCheck = document.querySelector('.checkCsv').checked;
-    var jsonCheck = document.querySelector('.checkJson').checked;
-    var xmlCheck = document.querySelector('.checkXml').checked;
-    var yamlCheck = document.querySelector('.checkYaml').checked;
-
-    csvCheck === true ? csvCheck = 'addCsv' : csvCheck;
-    jsonCheck === true ? jsonCheck = 'addJson' : jsonCheck;
-    xmlCheck === true ? xmlCheck = 'addXml' : xmlCheck;
-    yamlCheck === true ? yamlCheck = 'addYaml' : yamlCheck;
-    checkBoxArr = [csvCheck, jsonCheck, xmlCheck, yamlCheck];
-    questionCreate(checkBoxArr);
+function changeRadio(status){
+    status === "false" ? radioStatus = "false" : radioStatus = "true"
 }
 
 function questionCreate () {           
    setTimeout(function () {  
     var data = {
-        id: 8,
-        theme: "html",
-        quesText: "New ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?",
-        correctAnsw: "false",
+        id: 0,
+        theme: document.querySelector('.popup_theme-select').value,
+        quesText: document.querySelector('.popup__que').value,
+        correctAnsw: radioStatus,
     }
     if (checkBoxArr[reqCounter] !== false){
         postReq(data, checkBoxArr[reqCounter]);  
@@ -47,6 +38,9 @@ function questionCreate () {
         questionCreate();           
       } else if (reqCounter === 4){
           reqCounter = 0;
+          setTimeout(function(){
+              reqCall();
+          }, 200);
       }                      
    }, 100)
 }
@@ -57,4 +51,7 @@ function queDel (val) {
         id: val,
     }
     postReq(data, 'del' + extension);
+    setTimeout(function (){
+        reqCall();
+    }, 50);
 }

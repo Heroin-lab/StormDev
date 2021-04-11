@@ -1,27 +1,26 @@
 ---
-questions:
+  questions:
   - id: 1
     theme: js
     quesText: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
-    correctAnsw: true
+    correctAnsw: true 
   - id: 2
     theme: js
     quesText: Lorem ipsum2 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
-    correctAnsw: false
+    correctAnsw: false 
   - id: 3
     theme: js
     quesText: Lorem ipsum2 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
-    correctAnsw: false
+    correctAnsw: false 
   - id: 4
     theme: css
     quesText: Lorem ipsum2 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
-    correctAnsw: false
+    correctAnsw: false 
   - id: 5
     theme: css
     quesText: Lorem ipsum2 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
-    correctAnsw: false
+    correctAnsw: false 
   - id: 6
     theme: html
     quesText: Lorem ipsum2 dolor sit amet, consectetuer
-    correctAnsw: false
-	
+    correctAnsw: false 

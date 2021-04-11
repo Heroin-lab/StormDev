@@ -54,15 +54,15 @@
                         </div>
                         <textarea class="popup__modal-input popup__que" wrap="soft" maxlength="255" type="text"></textarea>
                             <p class="popup__modal-question">Theme:</p>
-                        <select class="popup__modal-input" name="theme" id="select">
+                        <select class="popup__modal-input popup_theme-select" name="theme" id="select">
                             <option value="js">JS</option>
                             <option value="css">CSS</option>
-                            <option value="css">HTML</option>
+                            <option value="html">HTML</option>
                         </select>
                             <p class="popup__modal-question">Answer:</p>
                         <div class="popup__modal-rad">
-                            <input class="popup__modal-radio" type="radio" name="radio"> True |
-                            <input class="popup__modal-radio" type="radio" name="radio"> False
+                            <input class="popup__modal-radio radio-True" type="radio" name="radio" value="true" onclick="changeRadio(value)"> True |
+                            <input class="popup__modal-radio radio-False" type="radio" name="radio" value="false" onclick="changeRadio(value)" checked> False
                         </div>
                             <p class="popup__modal-question">File system:</p>
                         <div class="popup__modal-check">
@@ -75,6 +75,7 @@
                             <button class="popup__modal-button1">create</button>
                             <button class="popup__modal-button2">cancle</button>
                         </div>
+                        <p class="popup__modal-alert"></p>
                     </div>
                 </div>
             </div>
@@ -100,8 +101,8 @@
             </div>
         </div>
     </section>
-    <script src="js/script.js"></script>
     <script src="js/serverCalls.js"></script>
     <script src="js/fileEditor.js"></script>
+    <script src="js/popup-validator.js"></script>
 </body>
 </html>
