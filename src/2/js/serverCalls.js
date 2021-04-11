@@ -25,7 +25,6 @@ var getReq = function(fileExtension) {
 }
 
 var xmlParser = function(reqResult) {
-    console.log(reqResult.quest);
     var objArrays = reqResult.quest;
     var buffer = [];
     for (var i = 0; i < objArrays.id.length; i++){

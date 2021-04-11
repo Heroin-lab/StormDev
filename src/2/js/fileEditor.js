@@ -1,26 +1,51 @@
-
 var createQuestion = document.querySelector('.popup__modal-button1');
 
-createQuestion.addEventListener('click', questionCreate);
+createQuestion.addEventListener('click', questionCheckBoxes);
 
-function postReq(body) {
+function postReq(body, url) {
     return new Promise(function(resolve,reject){
-        xhr.open('POST', requestURL + 'add');
+        xhr.open('POST', requestURL + url);
         xhr.onload = function(){
           return resolve(xhr.responseText);
         };
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(body ));    
+        xhr.send(JSON.stringify(body));    
     });
 }
 
+var reqCounter = 0;  
+var checkBoxArr = [];
 
-function questionCreate() {
+function questionCheckBoxes(){
+    var csvCheck = document.querySelector('.checkCsv').checked;
+    var jsonCheck = document.querySelector('.checkJson').checked;
+    var xmlCheck = document.querySelector('.checkXml').checked;
+    var yamlCheck = document.querySelector('.checkYaml').checked;
+
+    csvCheck === true ? csvCheck = 'addCsv' : csvCheck;
+    jsonCheck === true ? jsonCheck = 'addJson' : jsonCheck;
+    xmlCheck === true ? xmlCheck = 'addXml' : xmlCheck;
+    yamlCheck === true ? yamlCheck = 'addYaml' : yamlCheck;
+    checkBoxArr = [csvCheck, jsonCheck, xmlCheck, yamlCheck];
+    questionCreate(checkBoxArr);
+}
+
+function questionCreate () {           
+   setTimeout(function () {  
     var data = {
         id: 8,
         theme: "New",
         quesText: "New ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?",
         correctAnsw: false,
     }
-    postReq(data);
+    if (checkBoxArr[reqCounter] !== false){
+        postReq(data, checkBoxArr[reqCounter]);  
+    }     
+      reqCounter++;                
+      if (reqCounter < 4) {          
+        questionCreate();           
+      } else if (reqCounter === 4){
+          reqCounter = 0;
+      }                      
+   }, 0.05)
 }

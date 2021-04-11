@@ -9,7 +9,6 @@ var xml2json = require('xml2js');
 var obj2xml = require('object-to-xml');
 var xmlParser = new xml2json.Parser();
 
-
 var { json } = require('body-parser')
 var jsonParser = json();
 
@@ -23,17 +22,20 @@ function handlerRequest(request,response){
     'Access-Control-Max-Age': 250000, 
     'Access-Control-Allow-Headers': '*',
   };
+
   if(request.method === 'OPTIONS'){
     response.writeHead(204,headers);
     response.end();
     return
   }
+
   if(request.url === '/developers' && request.method === 'GET'){
     var data = fs.readFileSync('developers.json');
     response.writeHead(200,headers);
     response.end(data);
     return;
   }
+
   if(request.url === '/developers' && request.method === 'POST'){
     jsonParser(request,response,function(error){
       if(error){
@@ -46,12 +48,14 @@ function handlerRequest(request,response){
       response.end('success');
     })
   }
+
   if(request.url === '/question/json' && request.method === 'GET'){
     var data = fs.readFileSync('../allQuestions/question.json');
     response.writeHead(200,headers);
     response.end(data);
     return;
   }
+
   if(request.url === '/question/csv' && request.method === 'GET'){
     var data = '';
       csv({delimiter:','})
@@ -63,6 +67,7 @@ function handlerRequest(request,response){
         });
     return;
   }
+
   if(request.url === '/question/xml' && request.method === 'GET'){
     var data = fs.readFile('../allQuestions/question.xml', function(err, data){
       xmlParser.parseString(data, function(err, result){
@@ -73,6 +78,7 @@ function handlerRequest(request,response){
     });
     return;
   }
+
   if(request.url === '/question/yaml' && request.method === 'GET'){
     var file = fs.readFileSync('../allQuestions/question.yaml');
     var data = JSON.stringify(yaml.load(file));
@@ -80,57 +86,80 @@ function handlerRequest(request,response){
     response.end(data);
     return;
   }
-  // if(request.url === '/question/add' && request.method === 'POST'){
-  //   jsonParser(request,response,function(error){
-  //     if(error){
-  //       throw error;
-  //     } 
-  //     var devs = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
-  //     devs.push(request.body);
-  //     fs.writeFileSync('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
-  //     response.writeHead(200,headers);
-  //     response.end('success');
-  //   })
-  // }
-  // if(request.url === '/question/add' && request.method === 'POST'){
-  //   jsonParser(request,response,function(error){
-  //     if(error){
-  //       throw error;
-  //     } 
-  //     var devs = '';
-  //     csv({delimiter:','})
-  //       .fromFile('../allQuestions/question.csv')
-  //       .then(function(jsonArr){
-  //         jsonArr.push(request.body);
-  //         data = new ObjectsToCsv(jsonArr);
-  //         data.toDisk('../allQuestions/question.csv');
-  //       });
-  //       response.writeHead(200,headers);
-  //       response.end('success');
-  //     return;
-  //   })
-  // if(request.url === '/question/add' && request.method === 'POST'){
-  //   jsonParser(request,response,function(error){
-  //     if(error){
-  //       throw error;
-  //     } 
-  //     var data = fs.readFile('../allQuestions/question.xml', function(err, data){
-  //       xmlParser.parseString(data, function(err, result){
-  //       result.quest.id.push(`${request.body.id}`);
-  //       result.quest.theme.push(request.body.theme);
-  //       result.quest.quesText.push(request.body.quesText);
-  //       result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
-  //       var xmldata = obj2xml(result);
-  //       xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
-  //       fs.writeFileSync('../allQuestions/question.xml', xmldata);
-  //       })
-  //     })
-  //     response.writeHead(200,headers);
-  //     response.end('success');
-  //     return;
-  //   })
-}
 
+  if(request.url === '/question/addJson' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+      var devs = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
+      devs.push(request.body);
+      fs.writeFile('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
+      response.writeHead(200,headers);
+      response.end('success');
+    })
+  }
+
+  if(request.url === '/question/addCsv' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+      csv({delimiter:','})
+        .fromFile('../allQuestions/question.csv')
+        .then(function(jsonArr){
+          jsonArr.push(request.body);
+          data = new ObjectsToCsv(jsonArr);
+          data.toDisk('../allQuestions/question.csv');
+        });
+        response.writeHead(200,headers);
+        response.end('success');
+      return;
+    })
+  }
+
+  if(request.url === '/question/addXml' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+      var data = fs.readFileSync('../allQuestions/question.xml');
+        xmlParser.parseString(data, function(err, result){
+        result.quest.id.push(`${request.body.id}`);
+        result.quest.theme.push(request.body.theme);
+        result.quest.quesText.push(request.body.quesText);
+        result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
+        var xmldata = obj2xml(result);
+        xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
+        fs.writeFile('../allQuestions/question.xml', xmldata);
+      })
+      response.writeHead(200,headers);
+      response.end('success');
+      return;
+    })
+  }
+
+  if(request.url === '/question/addYaml' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+    var file = fs.readFileSync('../allQuestions/question.yaml');
+    var data = 
+      `\n    - id: ${request.body.id}
+      theme: ${request.body.theme}
+      quesText: ${request.body.quesText}
+      correctAnsw: ${request.body.correctAnsw} `;
+    file += data
+
+    fs.writeFile('../allQuestions/question.yaml', (file));
+
+    response.writeHead(200,headers);
+    response.end('success');
+    return;
+    });
+  }
+}
 console.log(`Server is running on http://${host}:${PORT}`);
 
 server.listen(PORT);
