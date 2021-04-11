@@ -29,9 +29,9 @@
                 <div class="questions__select">
                     <select name="select" class="select">
                         <option class="select__value" value="json">JSON file system</option>
-                        <option class="select__value" value="csv">CSV questions theme</option>
-                        <option class="select__value" value="xml">XML questions theme</option>
-                        <option class="select__value" value="yaml">YAML questions theme</option>
+                        <option class="select__value" value="csv">CSV file system</option>
+                        <option class="select__value" value="xml">XML file system</option>
+                        <option class="select__value" value="yaml">YAML file system</option>
                     </select>            
                 </div>
                 <div class="questions__select">
@@ -39,7 +39,7 @@
                         <option class="select__value" value="all">All</option>
                         <option class="select__value" value="js">JavaScript</option>
                         <option class="select__value" value="html">Html</option>
-                        <option class="select__value" value="css">Css</option>
+                        <option class="select__value" value="css">css</option>
                     </select>           
                 </div>
 
@@ -66,7 +66,7 @@
                         </div>
                             <p class="popup__modal-question">File system:</p>
                         <div class="popup__modal-check">
-                            <input class="popup__modal-checkbox checkCsv" type="checkbox" name="checkbox" checked> CSV  | 
+                            <input class="popup__modal-checkbox checkCsv" type="checkbox" name="checkbox"> CSV  | 
                             <input class="popup__modal-checkbox checkJson" type="checkbox" name="checkbox"> JSON  |
                             <input class="popup__modal-checkbox checkXml" type="checkbox" name="checkbox"> XML  |
                             <input class="popup__modal-checkbox checkYaml" type="checkbox" name="checkbox"> YAML  |
@@ -91,7 +91,7 @@
                                     magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto 
                                     blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?
                                 </div>
-                                <h2 class="project__delete-button">&times;</h2>
+                                <button class="project__delete-button" onclick="queDel(value)">&times;</button>
                             </div>
                             <h4 class="project__answer"></h4>
                         </div>

@@ -94,7 +94,8 @@ function handlerRequest(request,response){
       } 
       var devs = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
       devs.push(request.body);
-      fs.writeFile('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
+      fs.writeFileSync('../allQuestions/question.json', JSON.stringify(devs,null,'\t'));
+      console.log('work');
       response.writeHead(200,headers);
       response.end('success');
     })
@@ -112,6 +113,7 @@ function handlerRequest(request,response){
           data = new ObjectsToCsv(jsonArr);
           data.toDisk('../allQuestions/question.csv');
         });
+        console.log('work');
         response.writeHead(200,headers);
         response.end('success');
       return;
@@ -131,7 +133,8 @@ function handlerRequest(request,response){
         result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
         var xmldata = obj2xml(result);
         xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
-        fs.writeFile('../allQuestions/question.xml', xmldata);
+        fs.writeFileSync('../allQuestions/question.xml', xmldata);
+        console.log('work');
       })
       response.writeHead(200,headers);
       response.end('success');
@@ -144,6 +147,7 @@ function handlerRequest(request,response){
       if(error){
         throw error;
       } 
+      console.log('work2');
     var file = fs.readFileSync('../allQuestions/question.yaml');
     var data = 
       `\n    - id: ${request.body.id}
@@ -151,9 +155,105 @@ function handlerRequest(request,response){
       quesText: ${request.body.quesText}
       correctAnsw: ${request.body.correctAnsw} `;
     file += data
+    fs.writeFileSync('../allQuestions/question.yaml', file);
+    console.log('work');
+    response.writeHead(200,headers);
+    response.end('success');
+    return;
+    });
+  }
 
-    fs.writeFile('../allQuestions/question.yaml', (file));
+  if(request.url === '/question/deljson' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+    var data = JSON.parse(fs.readFileSync('../allQuestions/question.json'));
+    for (var i = 0; i < data.length; i++){
+      if (data[i].id == request.body.id){
+        data.splice(i, 1);
+      }
+    }
+    fs.writeFileSync('../allQuestions/question.json', JSON.stringify(data,null,'\t'));
+    response.writeHead(200,headers);
+    response.end('success');
+    return;
+    });
+  }
 
+  if(request.url === '/question/delcsv' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+
+    var data = '';
+    csv({delimiter:','})
+      .fromFile('../allQuestions/question.csv')
+      .then(function(jsonArr){
+        data = jsonArr;
+
+        for (var i = 0; i < data.length; i++){
+          if (data[i].id == request.body.id){
+            data.splice(i, 1);
+          }
+        }
+  
+        data = new ObjectsToCsv(data);
+        data.toDisk('../allQuestions/question.csv');
+      });
+    response.writeHead(200,headers);
+    response.end('success');
+    return;
+    });
+  }
+
+  if(request.url === '/question/delxml' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      }
+    var data = fs.readFileSync('../allQuestions/question.xml');
+        xmlParser.parseString(data, function(err, result){
+          file = result;
+          for (var i = 0; i < file.quest.id.length; i++){
+            if (file.quest.id[i] == request.body.id){
+              file.quest.id.splice(i, 1);
+              file.quest.theme.splice(i, 1);
+              file.quest.quesText.splice(i, 1);
+              file.quest.correctAnsw.splice(i, 1);
+            }
+          }
+        var xmldata = obj2xml(file);
+        xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
+        fs.writeFile('../allQuestions/question.xml', xmldata, function(){});
+      }) 
+    response.writeHead(200,headers);
+    response.end('success');
+    return;
+    });
+  }
+
+  if(request.url === '/question/delyaml' && request.method === 'POST'){
+    jsonParser(request,response,function(error){
+      if(error){
+        throw error;
+      } 
+    var yamlWriter = `---
+    questions:`;
+    var file = fs.readFileSync('../allQuestions/question.yaml');
+    var data = yaml.load(file);
+    for (var i = 0; i < data.questions.length; i++){
+      if (data.questions[i].id == request.body.id){
+        
+      } else { yamlWriter +=
+        `\n    - id: ${data.questions[i].id}
+      theme: ${data.questions[i].theme}
+      quesText: ${data.questions[i].quesText}
+      correctAnsw: ${data.questions[i].correctAnsw} `;
+      }
+    }
+    fs.writeFileSync('../allQuestions/question.yaml', yamlWriter);
     response.writeHead(200,headers);
     response.end('success');
     return;

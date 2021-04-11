@@ -40,6 +40,7 @@ var xmlParser = function(reqResult) {
 }
 
 function reqCall() {
+    console.log('reqCall work');
     var extensionName = '';
     switch(extensionFilter.value){
         case 'json': extensionName = 'json'
@@ -66,6 +67,7 @@ function selectTheme() {
 }
 
 function themeDecoder(serverRes){
+    console.log(themeFilter.value);
     var container = [];
     for (var i = 0; i < serverRes.length; i++){
         if (themeName === 'all'){
@@ -75,7 +77,7 @@ function themeDecoder(serverRes){
             container.push(serverRes[i]);
         } else if (themeName === 'html' && serverRes[i].theme === 'html'){
             container.push(serverRes[i]);
-        } else if (themeName === 'css' && serverRes[i].theme === 'css'){
+        } else if (themeName === 'css' && serverRes[i].theme == 'css'){
             container.push(serverRes[i]);
         } else {
             console.log('error');
@@ -98,6 +100,7 @@ var templateParser = function(arrObjects) {
     for (var i = 0; i < arrObjects.length; i++){
         var pattern = document.querySelector('.sample').content;
         var copyHTML = document.importNode(pattern, true);
+        copyHTML.querySelector(".project__delete-button").value = arrObjects[i].id;
         copyHTML.querySelector(".project__title").textContent = arrObjects[i].theme;
         copyHTML.querySelector(".project__text").textContent = arrObjects[i].quesText;
         copyHTML.querySelector(".project__answer").textContent = arrObjects[i].correctAnsw;
