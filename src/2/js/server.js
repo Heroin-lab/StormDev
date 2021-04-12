@@ -9,7 +9,8 @@ var xml2json = require('xml2js');
 var obj2xml = require('object-to-xml');
 var xmlParser = new xml2json.Parser();
 
-var { json } = require('body-parser')
+var { json } = require('body-parser');
+const { longStackTraces } = require('bluebird');
 var jsonParser = json();
 
 var server = http.createServer(handlerRequest);
@@ -127,10 +128,10 @@ function handlerRequest(request,response){
       } 
       var data = fs.readFileSync('../allQuestions/question.xml');
         xmlParser.parseString(data, function(err, result){
-          if (result.quest.id !== undefined) {
-            request.body.id = result.quest.id.length + 1;
-          } else { request.body.id = 1}
-        result.quest.id.push(`${request.body.id}`);
+        if (result.quest === '\n' || result.quest === undefined){
+          result.quest = {id: [], theme: [], quesText: [], correctAnsw: []};
+        } 
+        result.quest.id.push(`${result.quest.id.length + 1}`);
         result.quest.theme.push(request.body.theme);
         result.quest.quesText.push(request.body.quesText);
         result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
@@ -148,14 +149,22 @@ function handlerRequest(request,response){
     jsonParser(request,response,function(error){
       if(error){
         throw error;
-      } 
-      var file = fs.readFileSync('../allQuestions/question.yaml');
-      var id = yaml.load(file).questions;
-      var data = 
-        `\n  - id: ${id.length + 1}
-    theme: ${request.body.theme}
-    quesText: ${request.body.quesText}
-    correctAnsw: ${request.body.correctAnsw} `;
+      }
+    var file = fs.readFileSync('../allQuestions/question.yaml');
+    var id = yaml.load(file).questions;
+    if (id === null || id === undefined){
+          var data = 
+    `\n    - id: ${1}
+      theme: ${request.body.theme}
+      quesText: '${request.body.quesText}'
+      correctAnsw: ${request.body.correctAnsw} `;  
+    } else {
+          var data = 
+    `\n    - id: ${id.length + 1}
+      theme: ${request.body.theme}
+      quesText: '${request.body.quesText}'
+      correctAnsw: ${request.body.correctAnsw} `;
+    }
         file += data
         fs.writeFileSync('../allQuestions/question.yaml', file);
     response.writeHead(200,headers);
@@ -241,7 +250,7 @@ function handlerRequest(request,response){
         throw error;
       } 
     var yamlWriter = `---
-    questions:`;
+  questions:`;
     var file = fs.readFileSync('../allQuestions/question.yaml');
     var data = yaml.load(file);
     for (var i = 0; i < data.questions.length; i++){
@@ -250,7 +259,7 @@ function handlerRequest(request,response){
       } else { yamlWriter +=
         `\n    - id: ${data.questions[i].id}
       theme: ${data.questions[i].theme}
-      quesText: ${data.questions[i].quesText}
+      quesText: '${data.questions[i].quesText}'
       correctAnsw: ${data.questions[i].correctAnsw} `;
       }
     }

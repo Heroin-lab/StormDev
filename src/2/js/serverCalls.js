@@ -14,11 +14,11 @@ var getReq = function(fileExtension) {
     xhr.onload = function() {
         result = JSON.parse(xhr.response);
         if (fileExtension === 'json' || fileExtension === 'csv'){
-            themeDecoder(result);
+            checkForEmpty(result);
         } else if (fileExtension === 'xml'){
             xmlParser(result);
         } else if (fileExtension === 'yaml'){
-            themeDecoder(result.questions);
+            checkForEmpty(result.questions);
         }
     }
     xhr.send();
@@ -27,16 +27,20 @@ var getReq = function(fileExtension) {
 var xmlParser = function(reqResult) {
     var objArrays = reqResult.quest;
     var buffer = [];
-    for (var i = 0; i < objArrays.id.length; i++){
-        xz = {
-            id: objArrays.id[i],
-            theme: objArrays.theme[i],
-            quesText: objArrays.quesText[i],
-            correctAnsw: objArrays.correctAnsw[i],
+    if (objArrays !== undefined && objArrays !== `\n` && objArrays !== null){
+        for (var i = 0; i < objArrays.id.length; i++){
+            xz = {
+                id: objArrays.id[i],
+                theme: objArrays.theme[i],
+                quesText: objArrays.quesText[i],
+                correctAnsw: objArrays.correctAnsw[i],
+            }
+            buffer.push(xz);
         }
-        buffer.push(xz);
+        checkForEmpty(buffer);
+    } else {
+        checkForEmpty(null);
     }
-    themeDecoder(buffer);
 }
 
 function reqCall() {
@@ -65,8 +69,23 @@ function selectTheme() {
     getReq(extensionFilter.value);  
 }
 
+function checkForEmpty (resFromServ) {
+    var queIfEmpty = document.querySelector('.if-empty');
+    if (resFromServ !== null && resFromServ !== undefined && resFromServ.length !== 0 && typeof resFromServ !== 'string'){
+        queIfEmpty.style.display = 'none';
+        themeDecoder(resFromServ);
+    } else  if (resFromServ === 'empty'){
+        queIfEmpty.style.display = 'flex';
+        clearTemplate();
+    } else {
+        queIfEmpty.style.display = 'flex';
+        themeDecoder([]);
+    }
+}
+
 function themeDecoder(serverRes){
     var container = [];
+    
     for (var i = 0; i < serverRes.length; i++){
         if (themeName === 'all'){
             container = serverRes;
@@ -78,10 +97,15 @@ function themeDecoder(serverRes){
         } else if (themeName === 'css' && serverRes[i].theme == 'css'){
             container.push(serverRes[i]);
         } else {
-            console.log('error');
+
         }
     }
-    templateParser(container);
+    if (container.length !== 0){
+        templateParser(container);
+    } else {
+        templateParser(container);
+        checkForEmpty('empty');
+    }
 };
 
 function clearTemplate() {

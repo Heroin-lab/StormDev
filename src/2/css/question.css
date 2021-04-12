@@ -149,6 +149,12 @@ body {
   margin: 10px 0 10px 0;
 }
 
+.if-empty {
+  display: none;
+  position: absolute;
+  margin: 260px 0 0 488px; 
+}
+
 .questions .container .project__img {
   width: 65px;
   height: 75px;

@@ -1,10 +1,14 @@
 var popupOpen = document.querySelector('.question__popup-open'); // селекторы для слушателей
-var popupCloseButton = document.querySelector('.popup__modal-button2')
+var popupXCLose = document.querySelector('.popup__close-button');
 var popupWindow = document.querySelector('.popup__modal');
 var createQuestion = document.querySelector('.popup__modal-button1');
+var popupCloseButton = document.querySelector('.popup__modal-button2')
+
+
 
 
 popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
+popupXCLose.addEventListener('click', closePopupBtn); 
 popupCloseButton.addEventListener('click', closePopupBtn); // слушатель для закртия от кнопки
 popupWindow.addEventListener('click', closePopup);  // слушатель для закрытия по клику вне окна
 createQuestion.addEventListener('click', questionCheckBoxes);
@@ -13,7 +17,7 @@ function openPopup() {
     popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
 }
 
-function  closePopupBtn() {
+function closePopupBtn() {
     popupWindow.style.display = 'none'; // закрывает окно кнопкой (меняет стиль на none)
 }
 
@@ -22,6 +26,7 @@ function closePopup (e) {
         popupWindow.style.display = 'none'; //Закрывает модалку при клике вне окна
     }
 }
+
 
 function questionCheckBoxes(){
     var csvCheck = document.querySelector('.checkCsv').checked;
@@ -38,10 +43,10 @@ function questionCheckBoxes(){
 }
 
 function validator (arr) {
-    var textArea = document.querySelector('.popup__que').value;
+    var textArea = document.querySelector('.popup__que');
     var textAlert = document.querySelector('.popup__modal-alert');
     
-    if(textArea.replace(/\s/g,"") == ""){
+    if(textArea.value.replace(/\s/g,"") == ""){
         textAlert.innerHTML = 'Error: Empty question block!';
         setTimeout(function(){
             textAlert.innerHTML = '';
@@ -54,11 +59,10 @@ function validator (arr) {
         }, 3000);
     } else {
         questionCreate();
-        // popupWindow.innerHTML = `<div class="popup__modal-window" style="height: 100px; justify-content: center; padding: 0;">
-        //                             <p class="popup__modal-question" style="font-size: 20px; color: #009e08;">Question successfully created</p>
-        //                         </div>`;
-        // setTimeout(function () {
-        //     closePopupBtn();
-        // },2000)
+        textArea.value = '';
+        document.querySelector('.checkCsv').checked = false;
+        document.querySelector('.checkJson').checked = false;
+        document.querySelector('.checkXml').checked = false;
+        document.querySelector('.checkYaml').checked = false;
     }
 }
