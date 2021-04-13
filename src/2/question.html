@@ -76,13 +76,22 @@
                             <input class="popup__modal-checkbox checkYaml" type="checkbox" name="checkbox"> YAML  |
                         </div>
                         <div class="popup__modal-btn">
-                            <button class="popup__modal-button1">create</button>
-                            <button class="popup__modal-button2">cancle</button>
+                            <button class="popup__modal-button1">Create</button>
+                            <button class="popup__modal-button2">Cancle</button>
                         </div>
                         <p class="popup__modal-alert"></p>
                     </div>
+
                     <div class="popup__modal-window popup__succes-create">
                         <p class="popup__modal-question">Your question successfully created!</p>
+                    </div>
+
+                    <div class="popup__modal-window popup__question-delete">
+                        <p class="popup__modal-question">Are you sure you want delete this question?</p>
+                        <div class="popup__modal-btn">
+                            <button class="popup__modal-button-delete">Yes! Delete!</button>
+                            <button class="popup__modal-button2 popup__modal-button-close">Cancle</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,6 +121,7 @@
             </div>
         </div>
     </div>
+
     </section>
     <script src="js/serverCalls.js"></script>
     <script src="js/fileEditor.js"></script>

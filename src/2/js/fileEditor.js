@@ -44,14 +44,3 @@ function questionCreate () {
       }                      
    }, 100)
 }
-
-function queDel (val) {
-    var extension = document.querySelector('.select').value;
-    var data = {
-        id: val,
-    }
-    postReq(data, 'del' + extension);
-    setTimeout(function (){
-        reqCall();
-    }, 50);
-}

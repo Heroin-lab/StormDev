@@ -4,14 +4,16 @@ var popupWindow = document.querySelector('.popup__modal');
 var succesCreate = document.querySelector('.popup__create-quest');
 var succesWindow = document.querySelector('.popup__succes-create');
 var createQuestion = document.querySelector('.popup__modal-button1');
-var popupCloseButton = document.querySelector('.popup__modal-button2')
+var popupCloseButton = document.querySelector('.popup__modal-button2');
 var textArea = document.querySelector('.popup__que');
 
 popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
 popupXCLose.addEventListener('click', closePopupBtn); 
 popupCloseButton.addEventListener('click', closePopupBtn); // слушатель для закртия от кнопки
-popupWindow.addEventListener('click', closePopup);  // слушатель для закрытия по клику вне окна
+popupWindow.addEventListener('mousedown', closePopup);  // слушатель для закрытия по клику вне окна
 createQuestion.addEventListener('click', questionCheckBoxes);
+
+var queValue;
 
 function openPopup() {
     popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
@@ -80,4 +82,29 @@ function succesCreation() {
         succesWindow.style.display = 'none';
         closePopupBtn();
     }, 1000)
+}
+
+function queDel(val) {
+    succesCreate.style.display = 'none';
+    popupWindow.style.display = 'flex';
+    document.querySelector('.popup__question-delete').style.display = 'flex';
+
+    queValue = val;
+    var deleteQuestion = document.querySelector('.popup__modal-button-delete');
+    var cancleDeleteWindow = document.querySelector('.popup__modal-button-close');
+    cancleDeleteWindow.onclick = closePopupBtn;
+    deleteQuestion.onclick = queDeleteAccept;
+}
+
+function queDeleteAccept () {
+    var extension = document.querySelector('.select').value;
+    var data = {
+        id: queValue,
+    }
+    postReq(data, 'del' + extension);
+    setTimeout(function (){
+        reqCall();
+        succesCreate.style.display = 'flex';
+        popupWindow.style.display = 'none';
+    }, 50);
 }
