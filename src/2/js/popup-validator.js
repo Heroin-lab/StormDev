@@ -6,6 +6,7 @@ var succesWindow = document.querySelector('.popup__succes-create');
 var createQuestion = document.querySelector('.popup__modal-button1');
 var popupCloseButton = document.querySelector('.popup__modal-button2');
 var textArea = document.querySelector('.popup__que');
+var popupDeleteWindow = document.querySelector('.popup__question-delete');
 
 popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
 popupXCLose.addEventListener('click', closePopupBtn); 
@@ -19,15 +20,41 @@ function openPopup() {
     popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
     succesCreate.style.display = 'flex';
     succesWindow.style.display = 'none';
+    animationPopup();
+}
+
+function animationPopup() {
+    var window = document.querySelector('.popup__create-quest');
+    popupWindow.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+    pos = 950;
+    opacity = 0;
+    var animate = setInterval(frame, 10);
+    function frame() {
+        if (pos > 0){
+            pos -= 30;
+            window.style.bottom = pos + 'px';
+        } else if (pos < 0){
+            pos += 20;
+            window.style.bottom = pos + 'px';
+        } else {
+            clearInterval(animate);
+        }
+        if (opacity <= 0.40){
+            opacity += 0.02;
+            popupWindow.style.backgroundColor = `rgba(0,0,0,${opacity})`
+        }
+    }
 }
 
 function closePopupBtn() {
+    popupDeleteWindow.style.display = 'none';
     popupWindow.style.display = 'none'; // закрывает окно кнопкой (меняет стиль на none)
 }
 
 function closePopup (e) {
     if (e.target == popupWindow) {
         popupWindow.style.display = 'none'; //Закрывает модалку при клике вне окна
+        popupDeleteWindow.style.display = 'none';
     }
 }
 
@@ -78,7 +105,6 @@ function succesCreation() {
         textArea.value = '';
     }, 500)
     setTimeout(function(){
-        
         succesWindow.style.display = 'none';
         closePopupBtn();
     }, 1000)
@@ -87,7 +113,7 @@ function succesCreation() {
 function queDel(val) {
     succesCreate.style.display = 'none';
     popupWindow.style.display = 'flex';
-    document.querySelector('.popup__question-delete').style.display = 'flex';
+    popupDeleteWindow.style.display = 'flex';
 
     queValue = val;
     var deleteQuestion = document.querySelector('.popup__modal-button-delete');
@@ -104,7 +130,6 @@ function queDeleteAccept () {
     postReq(data, 'del' + extension);
     setTimeout(function (){
         reqCall();
-        succesCreate.style.display = 'flex';
-        popupWindow.style.display = 'none';
+        closePopupBtn();
     }, 50);
 }
