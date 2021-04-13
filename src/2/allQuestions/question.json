@@ -1,62 +1,56 @@
 [
 	{
 		"id": 1,
-		"theme": "js",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "JS",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	},
 	{
 		"id": 2,
-		"theme": "js",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "CSS",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	},
 	{
 		"id": 3,
-		"theme": "css",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "HTML",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	},
 	{
 		"id": 4,
-		"theme": "css",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
-		"correctAnsw": "true"
+		"theme": "OOP",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"correctAnsw": "false"
 	},
 	{
 		"id": 5,
-		"theme": "html",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
-		"correctAnsw": "true"
+		"theme": "OOP",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"correctAnsw": "false"
 	},
 	{
 		"id": 6,
-		"theme": "html",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
-		"correctAnsw": "true"
+		"theme": "REACT",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"correctAnsw": "false"
 	},
 	{
 		"id": 7,
-		"theme": "css",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "JS",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	},
 	{
 		"id": 8,
-		"theme": "css",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "CSS",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	},
 	{
 		"id": 9,
-		"theme": "js",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
-		"correctAnsw": "true"
-	},
-	{
-		"id": 10,
-		"theme": "js",
-		"quesText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
+		"theme": "CSS",
+		"quesText": "JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo",
 		"correctAnsw": "true"
 	}
 ]

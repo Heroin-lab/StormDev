@@ -39,6 +39,15 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.popup__modal .popup__succes-create {
+  display: none;
+  max-height: 150px;
+}
+
+.popup__modal .popup__succes-create .popup__modal-question {
+  color: rgb(26, 182, 26);
+}
+
 .popup__modal .popup__modal-window .popup__header {
   display: flex;
 }

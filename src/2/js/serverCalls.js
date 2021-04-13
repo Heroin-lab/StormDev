@@ -44,24 +44,12 @@ var xmlParser = function(reqResult) {
 }
 
 function reqCall() {
-    var extensionName = '';
-    switch(extensionFilter.value){
-        case 'json': extensionName = 'json'
-        break;
-
-        case 'csv': extensionName = 'csv'
-        break;
-
-        case 'xml': extensionName = 'xml'
-        break;
-
-        case 'yaml': extensionName = 'yaml'
-        break;
-
-        default: 'json'
-            break;
+    if (extensionFilter.value === 'json' || extensionFilter.value === 'csv' 
+    || extensionFilter.value === 'xml' || extensionFilter.value === 'yaml') {
+        getReq(extensionFilter.value);
+    } else {
+        console.log('Слыш! ТЕБЕ СЮДА НЕЛЬЗЯ');
     }
-    getReq(extensionName);
 }
 
 function selectTheme() {
@@ -90,15 +78,9 @@ function themeDecoder(serverRes){
         if (themeName === 'all'){
             container = serverRes;
             break; 
-        } else if (themeName === 'js' && serverRes[i].theme === 'js'){
+        } else if (serverRes[i].theme === themeName){
             container.push(serverRes[i]);
-        } else if (themeName === 'html' && serverRes[i].theme === 'html'){
-            container.push(serverRes[i]);
-        } else if (themeName === 'css' && serverRes[i].theme == 'css'){
-            container.push(serverRes[i]);
-        } else {
-
-        }
+        } 
     }
     if (container.length !== 0){
         templateParser(container);

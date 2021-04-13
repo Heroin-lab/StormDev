@@ -1,11 +1,11 @@
 var popupOpen = document.querySelector('.question__popup-open'); // селекторы для слушателей
 var popupXCLose = document.querySelector('.popup__close-button');
 var popupWindow = document.querySelector('.popup__modal');
+var succesCreate = document.querySelector('.popup__create-quest');
+var succesWindow = document.querySelector('.popup__succes-create');
 var createQuestion = document.querySelector('.popup__modal-button1');
 var popupCloseButton = document.querySelector('.popup__modal-button2')
-
-
-
+var textArea = document.querySelector('.popup__que');
 
 popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
 popupXCLose.addEventListener('click', closePopupBtn); 
@@ -15,6 +15,8 @@ createQuestion.addEventListener('click', questionCheckBoxes);
 
 function openPopup() {
     popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
+    succesCreate.style.display = 'flex';
+    succesWindow.style.display = 'none';
 }
 
 function closePopupBtn() {
@@ -43,7 +45,6 @@ function questionCheckBoxes(){
 }
 
 function validator (arr) {
-    var textArea = document.querySelector('.popup__que');
     var textAlert = document.querySelector('.popup__modal-alert');
     
     if(textArea.value.replace(/\s/g,"") == ""){
@@ -59,10 +60,24 @@ function validator (arr) {
         }, 3000);
     } else {
         questionCreate();
-        textArea.value = '';
-        document.querySelector('.checkCsv').checked = false;
-        document.querySelector('.checkJson').checked = false;
-        document.querySelector('.checkXml').checked = false;
-        document.querySelector('.checkYaml').checked = false;
+        succesCreation();
     }
+}
+
+function succesCreation() {
+    document.querySelector('.checkCsv').checked = false;
+    document.querySelector('.checkJson').checked = false;
+    document.querySelector('.checkXml').checked = false;
+    document.querySelector('.checkYaml').checked = false;
+
+    succesCreate.style.display = 'none';
+    succesWindow.style.display = 'flex';
+    setTimeout(function(){
+        textArea.value = '';
+    }, 500)
+    setTimeout(function(){
+        
+        succesWindow.style.display = 'none';
+        closePopupBtn();
+    }, 1000)
 }

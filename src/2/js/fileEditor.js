@@ -40,7 +40,7 @@ function questionCreate () {
           reqCounter = 0;
           setTimeout(function(){
               reqCall();
-          }, 200);
+          }, 100);
       }                      
    }, 100)
 }
