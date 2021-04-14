@@ -8,6 +8,11 @@ var popupCloseButton = document.querySelector('.popup__modal-button2');
 var textArea = document.querySelector('.popup__que');
 var popupDeleteWindow = document.querySelector('.popup__question-delete');
 
+var csvCheck = document.querySelector('.checkCsv');
+var jsonCheck = document.querySelector('.checkJson');
+var xmlCheck = document.querySelector('.checkXml');
+var yamlCheck = document.querySelector('.checkYaml');
+
 popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
 popupXCLose.addEventListener('click', closePopupBtn); 
 popupCloseButton.addEventListener('click', closePopupBtn); // слушатель для закртия от кнопки
@@ -20,6 +25,7 @@ function openPopup() {
     popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
     succesCreate.style.display = 'flex';
     succesWindow.style.display = 'none';
+    setCheckBox();
     animationPopup();
 }
 
@@ -39,22 +45,36 @@ function animationPopup() {
         } else {
             clearInterval(animate);
         }
-        if (opacity <= 0.40){
-            opacity += 0.02;
+        if (opacity <= 0.5){
+            opacity += 0.01;
             popupWindow.style.backgroundColor = `rgba(0,0,0,${opacity})`
         }
     }
 }
 
+function setCheckBox() {
+    var extension = document.querySelector('.select').value;
+    extension += 'Check';
+    
+    extension === 'jsonCheck' ? jsonCheck.checked = true : jsonCheck.checked = false;
+    extension === 'csvCheck' ? csvCheck.checked = true : csvCheck.checked = false;
+    extension === 'xmlCheck' ?  xmlCheck.checked = true : xmlCheck.checked = false;
+    extension === 'yamlCheck' ? yamlCheck.checked = true : yamlCheck.checked = false;
+}
+
 function closePopupBtn() {
     popupDeleteWindow.style.display = 'none';
+    document.querySelector('.popup__create-quest').style.bottom = '920px';
     popupWindow.style.display = 'none'; // закрывает окно кнопкой (меняет стиль на none)
+    setCheckBox()
 }
 
 function closePopup (e) {
     if (e.target == popupWindow) {
         popupWindow.style.display = 'none'; //Закрывает модалку при клике вне окна
+        document.querySelector('.popup__create-quest').style.bottom = '920px';
         popupDeleteWindow.style.display = 'none';
+        setCheckBox()
     }
 }
 
@@ -75,7 +95,6 @@ function questionCheckBoxes(){
 
 function validator (arr) {
     var textAlert = document.querySelector('.popup__modal-alert');
-    
     if(textArea.value.replace(/\s/g,"") == ""){
         textAlert.innerHTML = 'Error: Empty question block!';
         setTimeout(function(){
@@ -109,6 +128,7 @@ function succesCreation() {
         closePopupBtn();
     }, 1000)
 }
+
 
 function queDel(val) {
     succesCreate.style.display = 'none';

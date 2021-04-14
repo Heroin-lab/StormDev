@@ -1,34 +1,22 @@
 ---
   questions:
-    - id: 1
-      theme: JS
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: false 
     - id: 2
       theme: JS
-      quesText: 'CSV ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: false 
+      quesText: 'YAML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
+      correctAnsw: false
+      date: '14.03.2021 4:30' 
+    - id: 2
+      theme: REACT
+      quesText: 'YAML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
+      correctAnsw: true
+      date: 14.03.2021 10:9
     - id: 3
-      theme: CSS
-      quesText: 'CSV ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: false 
+      theme: OOP
+      quesText: 'XML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
+      correctAnsw: true
+      date: 14.03.2021 10:9
     - id: 4
       theme: CSS
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: false 
-    - id: 5
-      theme: HTML
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: false 
-    - id: 6
-      theme: HTML
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: true 
-    - id: 7
-      theme: OOP
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: true 
-    - id: 8
-      theme: OOP
-      quesText: 'XMLYA ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
-      correctAnsw: true 
+      quesText: 'YAML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo'
+      correctAnsw: true
+      date: 14.03.2021 10:17

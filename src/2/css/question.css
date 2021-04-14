@@ -147,7 +147,7 @@ body {
 } /* */
 
 .project__answer {
-  margin: 10px 0 10px 0;
+  max-width: 50px;
 }
 
 .if-empty {
@@ -166,6 +166,17 @@ body {
 .questions .container .project__item {
   margin-left: 25px;
   margin-top: 20px;
+}
+
+.questions .container .project__item .project__answear-date {
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+.questions .container .project__item .project__answear-date .project__date {
+  max-width: 130px;
+  max-height: 18px;
+  margin-left: 810px;
 }
 
 .questions .container .project__item .project__title {

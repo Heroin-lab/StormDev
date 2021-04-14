@@ -129,12 +129,13 @@ function handlerRequest(request,response){
       var data = fs.readFileSync('../allQuestions/question.xml');
         xmlParser.parseString(data, function(err, result){
         if (result.quest === '\n' || result.quest === undefined){
-          result.quest = {id: [], theme: [], quesText: [], correctAnsw: []};
+          result.quest = {id: [], theme: [], quesText: [], correctAnsw: [], date: []};
         } 
         result.quest.id.push(`${result.quest.id.length + 1}`);
         result.quest.theme.push(request.body.theme);
         result.quest.quesText.push(request.body.quesText);
         result.quest.correctAnsw.push(`${request.body.correctAnsw}`);
+        result.quest.date.push(request.body.date);
         var xmldata = obj2xml(result);
         xmldata = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>" + xmldata;
         fs.writeFileSync('../allQuestions/question.xml', xmldata);
@@ -157,13 +158,15 @@ function handlerRequest(request,response){
     `\n    - id: ${1}
       theme: ${request.body.theme}
       quesText: '${request.body.quesText}'
-      correctAnsw: ${request.body.correctAnsw} `;  
+      correctAnsw: ${request.body.correctAnsw}
+      date: ${request.body.date}`;  
     } else {
           var data = 
     `\n    - id: ${id.length + 1}
       theme: ${request.body.theme}
       quesText: '${request.body.quesText}'
-      correctAnsw: ${request.body.correctAnsw} `;
+      correctAnsw: ${request.body.correctAnsw}
+      date: ${request.body.date}`;
     }
         file += data
         fs.writeFileSync('../allQuestions/question.yaml', file);
@@ -232,6 +235,7 @@ function handlerRequest(request,response){
               file.quest.theme.splice(i, 1);
               file.quest.quesText.splice(i, 1);
               file.quest.correctAnsw.splice(i, 1);
+              file.quest.date.splice(i, 1);
             }
           }
         var xmldata = obj2xml(file);
@@ -260,7 +264,8 @@ function handlerRequest(request,response){
         `\n    - id: ${data.questions[i].id}
       theme: ${data.questions[i].theme}
       quesText: '${data.questions[i].quesText}'
-      correctAnsw: ${data.questions[i].correctAnsw} `;
+      correctAnsw: ${data.questions[i].correctAnsw}
+      date: '${data.questions[i].date}' `;
       }
     }
     fs.writeFileSync('../allQuestions/question.yaml', yamlWriter);

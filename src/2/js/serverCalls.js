@@ -24,25 +24,6 @@ var getReq = function(fileExtension) {
     xhr.send();
 }
 
-var xmlParser = function(reqResult) {
-    var objArrays = reqResult.quest;
-    var buffer = [];
-    if (objArrays !== undefined && objArrays !== `\n` && objArrays !== null){
-        for (var i = 0; i < objArrays.id.length; i++){
-            xz = {
-                id: objArrays.id[i],
-                theme: objArrays.theme[i],
-                quesText: objArrays.quesText[i],
-                correctAnsw: objArrays.correctAnsw[i],
-            }
-            buffer.push(xz);
-        }
-        checkForEmpty(buffer);
-    } else {
-        checkForEmpty(null);
-    }
-}
-
 function reqCall() {
     if (extensionFilter.value === 'json' || extensionFilter.value === 'csv' 
     || extensionFilter.value === 'xml' || extensionFilter.value === 'yaml') {
@@ -55,6 +36,26 @@ function reqCall() {
 function selectTheme() {
     themeName = themeFilter.value;
     getReq(extensionFilter.value);  
+}
+
+var xmlParser = function(reqResult) {
+    var objArrays = reqResult.quest;
+    var buffer = [];
+    if (objArrays !== undefined && objArrays !== `\n` && objArrays !== null && objArrays.length !== 0){
+        for (var i = 0; i < objArrays.id.length; i++){
+            xz = {
+                id: objArrays.id[i],
+                theme: objArrays.theme[i],
+                quesText: objArrays.quesText[i],
+                correctAnsw: objArrays.correctAnsw[i],
+                date: objArrays.date[i],
+            }
+            buffer.push(xz);
+        }
+        checkForEmpty(buffer);
+    } else {
+        checkForEmpty(null);
+    }
 }
 
 function checkForEmpty (resFromServ) {
@@ -108,6 +109,7 @@ var templateParser = function(arrObjects) {
         copyHTML.querySelector(".project__title").textContent = arrObjects[i].theme;
         copyHTML.querySelector(".project__text").textContent = arrObjects[i].quesText;
         copyHTML.querySelector(".project__answer").textContent = arrObjects[i].correctAnsw;
+        copyHTML.querySelector(".project__date").textContent = arrObjects[i].date;
         document.querySelector(".project").appendChild(copyHTML);
     } 
 }

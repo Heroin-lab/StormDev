@@ -22,6 +22,16 @@ function changeRadio(status){
     status === "false" ? radioStatus = "false" : radioStatus = "true"
 }
 
+function getDate() {
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    var h = date.getHours();
+    var mi = date.getMinutes();
+    return `${d}.0${m}.${y} ${h}:${mi}`
+}
+
 function questionCreate () {           
    setTimeout(function () {  
     var data = {
@@ -29,6 +39,7 @@ function questionCreate () {
         theme: document.querySelector('.popup_theme-select').value,
         quesText: document.querySelector('.popup__que').value,
         correctAnsw: radioStatus,
+        date: getDate(),
     }
     if (checkBoxArr[reqCounter] !== false){
         postReq(data, checkBoxArr[reqCounter]);  
