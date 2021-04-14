@@ -66,12 +66,16 @@ body {
   font-weight: bold;
   font-size: 24px;
   padding: 24px 10px 20px;
-  color: #333333;
   margin: 0 6px;
   border-bottom: 4px solid transparent;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   cursor: pointer;
+}
+
+.questions .container .questions__wrapper .nav ul .nav__list-item a {
+  text-decoration: none;
+  color: #333333;
 }
 
 .questions .container .questions__wrapper .nav ul .nav__list-item:hover {

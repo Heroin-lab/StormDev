@@ -29,6 +29,7 @@ function getDate() {
     var y = date.getFullYear();
     var h = date.getHours();
     var mi = date.getMinutes();
+    mi < 10 ? '0' += mi : mi;
     return `${d}.0${m}.${y} ${h}:${mi}`
 }
 
