@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import '_variables';
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../../assets/img/background.png') center center/cover no-repeat;
+  min-height: 754px;
+  width: 100%;
+  height: 100%;
+}
+
+.nav__list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  &-item{
+    /* display: inline-block; */
+    font-weight: bold;
+    font-size: 24px;
+    padding: 24px 10px 20px;
+    color: #333333;
+    margin: 0 6px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.5s;
+    &:hover {
+      border-bottom: 2px solid #00A4E5;
+    }
+    a{
+      text-decoration: none;
+    }
+    a:visited{
+      color: #333333;
+    }
+  }
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 15px;
+  button{
+    border: 1px solid #080808; /* Параметры рамки */
+    background: #fffdfe; /* Цвет фона */
+    font-size: 12px; /* Размер текста */
+    padding: 5px 20px; /* Поля вокруг текста */
+    margin: 10px 5px;
+  }
+}
+
+.questions__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  &__img{
+    width: 114px;
+    height: 103px;
+  }
+  &__title {
+    margin-top: 30px;
+    color: #333333;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 36px;
+  }
+}
+
+.nav__list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-item{
+    /* display: inline-block; */
+    font-weight: bold;
+    font-size: 24px;
+    padding: 24px 10px 20px;
+    color: #333333;
+    margin: 0 6px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.5s;
+    &:hover {
+      border-bottom: 2px solid #00A4E5;
+    }
+  }
+}
+.row {
+  display: flex;
+  justify-content:space-between;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+.anketa {
+  width: $anketa-width;
+  min-height:$anketa-heigth;
+  background-color: white;
+  &__content{
+    height: 420px;
+
+    &__name{
+      input{
+        margin: 5px;
+        padding: 5px;
+        width: 100%;
+        max-width: 90%;
+        max-height: 50px;
+        margin-bottom: 10px;
+        font-size: medium;
+                
+      }
+    }
+    &__about{
+      &-item{
+        font-size: medium;
+        input{
+          width: 100%;
+          max-width: 90%;
+          max-height: 50px;
+          margin-bottom: 10px;
+          font-size: medium;
+          border-style: hidden;
+        }
+      }
+      
+    }
+    &__hobby{
+      display: flex;
+      justify-content: center;
+      textarea{
+        width: 80%;
+        max-width: 90%;
+        max-height: 85px;
+        margin-bottom: 10px;
+        font-size:medium;
+        align-content: center;
+      }
+    }
+    &__name{
+      display: flex;
+      justify-content: center;
+      input{
+        width:45%;
+        text-align: center;
+        
+      }
+    }
+  }
+  &__pic{
+    &-img{
+      width:$anketa-width;
+      height: 300px;    
+    }
+  }
+}
