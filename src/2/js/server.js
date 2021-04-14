@@ -31,7 +31,7 @@ function handlerRequest(request,response){
   }
 
   if(request.url === '/developers' && request.method === 'GET'){
-    var data = fs.readFileSync('developers.json');
+    var data = fs.readFileSync('../../1/backend/developers.json');
     response.writeHead(200,headers);
     response.end(data);
     return;
@@ -42,9 +42,9 @@ function handlerRequest(request,response){
       if(error){
         throw error;
       } 
-      var devs = JSON.parse(fs.readFileSync('developers.json'));
+      var devs = JSON.parse(fs.readFileSync('../../1/backend/developers.json'));
       Object.assign(devs,request.body);
-      fs.writeFileSync('developers.json', JSON.stringify(devs,null,'\t'));
+      fs.writeFileSync('../../1/backend/developers.json', JSON.stringify(devs,null,'\t'));
       response.writeHead(200,headers);
       response.end('success');
     })
