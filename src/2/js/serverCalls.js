@@ -91,15 +91,6 @@ function themeDecoder(serverRes){
     }
 };
 
-function clearTemplate() {
-    var count = document.querySelector('.project').childElementCount;
-    for (var k = 0; k < count - 1; k++){
-        parent = document.querySelector('.project');
-        block = document.querySelector('.project__question-block');
-        parent.removeChild(block);
-    }
-}
-
 var templateParser = function(arrObjects) {
     clearTemplate();
     for (var i = 0; i < arrObjects.length; i++){
@@ -112,6 +103,15 @@ var templateParser = function(arrObjects) {
         copyHTML.querySelector(".project__date").textContent = arrObjects[i].date;
         document.querySelector(".project").appendChild(copyHTML);
     } 
+}
+
+function clearTemplate() {
+    var count = document.querySelector('.project').childElementCount;
+    for (var k = 0; k < count - 1; k++){
+        parent = document.querySelector('.project');
+        block = document.querySelector('.project__question-block');
+        parent.removeChild(block);
+    }
 }
 
 getReq('json');
