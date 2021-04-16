@@ -30,8 +30,8 @@ function handlerRequest(request,response){
         throw error;
       } 
       var devs = JSON.parse(fs.readFileSync('developers.json'));
-      var data = Object.assign(devs,request.body);
-      fs.writeFileSync('developers.json', JSON.stringify(data,null,'\t'));
+      Object.assign(devs,request.body);
+      fs.writeFileSync('developers.json', JSON.stringify(devs,null,'\t'));
       response.writeHead(200,headers);
       response.end('success');
     })
