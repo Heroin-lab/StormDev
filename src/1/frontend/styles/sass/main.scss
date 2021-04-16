@@ -49,6 +49,8 @@ body {
     font-size: 12px; /* Размер текста */
     padding: 5px 20px; /* Поля вокруг текста */
     margin: 10px 5px;
+    border-radius: 5px
+
   }
 }
 
@@ -143,6 +145,7 @@ body {
         font-style: italic;
         font-size:medium;
         align-content: center;
+        resize: none;
       }
     }
     &__name{

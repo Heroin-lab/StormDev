@@ -37,8 +37,8 @@ function load(){
         </div>
         <div class="anketa__content">
           <div class="anketa__content__name">
-            <input disabled type="text" id="nameInput" value="${developers[developer].name}">
-            <input disabled type="text" id="lastNameInput" value="${developers[developer].last_name}">
+            <input disabled type="text" placeholder ="Name" id="nameInput" value="${developers[developer].name}">
+            <input disabled type="text" id="lastNameInput" placeholder ="Surname"value="${developers[developer].last_name}">
           </div>
           <div class="anketa__content__about">
             <ul>
@@ -50,7 +50,7 @@ function load(){
           </ul>
           </div>
           <div class="anketa__content__hobby">
-           <textarea disabled type="text" id="hobbyTextArea">${developers[developer].hobby}</textarea>    
+           <textarea  placeholder="tell us about yourself with 77 symbols max"   disabled type="text" id="hobbyTextArea">${developers[developer].hobby}</textarea>    
           </div>
         </div>
       </div> 
@@ -88,13 +88,19 @@ function save(){
       return alert('Insert valid name and last name');
     }
     if(!tempDeveloper.cellphone.validateStr(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)){
-      return alert('Insert valid cellphone number');
+      return alert(`Insert valid cellphone number format: 'XXX-XXX-XXXX'`);
     }
     if(!tempDeveloper.email.validateStr(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)){
       return alert('Insert valid e-mail');
     }
     if(tempDeveloper.age <= 0 || tempDeveloper.age >= 122){
       return alert('Insert valid age');
+    }
+    if(tempDeveloper.city.length >= 30){
+      return alert(`Insert valid city 'length less 30 symbols'`)
+    }
+    if(tempDeveloper.hobby.length >= 77){
+      return alert(`Insert valid hobby 'length less 77 symbols'`)
     }
     
     data['developer' + (i + 1)] = tempDeveloper;
