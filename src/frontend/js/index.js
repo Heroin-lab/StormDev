@@ -42,11 +42,11 @@ function load(){
           </div>
           <div class="anketa__content__about">
             <ul>
-            <li class="anketa__content__about-item">Birthday:&nbsp;<input disabled id="birthdayInput"  value="${developers[developer].birthday}"></li>
-            <li class="anketa__content__about-item">Age:&nbsp<input disabled id="ageInput" type="number" min="0" max="100" value="${developers[developer].age}"></li>
+            <li class="anketa__content__about-item">Birthday:&nbsp;<input disabled type="date" id="birthdayInput"  value="${developers[developer].birthday}"></li>
+            <li class="anketa__content__about-item">Age:&nbsp<input disabled id="ageInput" type="number" min="0" max="122" value="${developers[developer].age}"></li>
             <li class="anketa__content__about-item">City:&nbsp<input disabled id="cityInput" type="text"  value="${developers[developer].city}"></li>
-            <li class="anketa__content__about-item">Cellphone:&nbsp<input disabled id="cellphoneInput"  value="${developers[developer].cellphone}"></li>
-            <li class="anketa__content__about-item">Email:&nbsp<input disabled id="emailInput"  min="0" max="100" value="${developers[developer].email}"></li>
+            <li class="anketa__content__about-item">Cellphone:&nbsp<input disabled id="cellphoneInput" value="${developers[developer].cellphone}"></li>
+            <li class="anketa__content__about-item">Email:&nbsp<input disabled id="emailInput" value="${developers[developer].email}"></li>
           </ul>
           </div>
           <div class="anketa__content__hobby">
@@ -63,6 +63,10 @@ function load(){
 }
 
 document.addEventListener('DOMContentLoaded',load);
+String.prototype.validateStr = function(regexObj){
+ return regexObj.test(this);
+}
+
 
 function save(){
   var data = {};
@@ -80,7 +84,21 @@ function save(){
       hobby: anketas[i].querySelector('#hobbyTextArea').value,
       avatar: anketas[i].querySelector('.anketa__pic-img').getAttribute('src').replace('./assets/img/','')
     }
+    if(tempDeveloper.name.validateStr(/[0-9!#$%&'*+/=?^_`{|}~-]/) ||tempDeveloper.last_name.validateStr(/[0-9!#$%&'*+/=?^_`{|}~-]/)){
+      return alert('Insert valid name and last name');
+    }
+    if(!tempDeveloper.cellphone.validateStr(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)){
+      return alert('Insert valid cellphone number');
+    }
+    if(!tempDeveloper.email.validateStr(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)){
+      return alert('Insert valid e-mail');
+    }
+    if(tempDeveloper.age <= 0 || tempDeveloper.age >= 122){
+      return alert('Insert valid age');
+    }
+    
     data['developer' + (i + 1)] = tempDeveloper;
+    
   }
 
   postRequest('/developers',data).then(function(data){

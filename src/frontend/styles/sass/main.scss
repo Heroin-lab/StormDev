@@ -10,6 +10,7 @@ body {
   min-height: 754px;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .nav__list{
@@ -100,6 +101,8 @@ body {
   width: $anketa-width;
   min-height:$anketa-heigth;
   background-color: white;
+  
+  border-radius: 10px;
   &__content{
     height: 420px;
 
@@ -133,10 +136,11 @@ body {
       display: flex;
       justify-content: center;
       textarea{
-        width: 80%;
+        width: 350px;
         max-width: 90%;
-        max-height: 85px;
+        max-height: 100px;
         margin-bottom: 10px;
+        font-style: italic;
         font-size:medium;
         align-content: center;
       }
@@ -153,6 +157,8 @@ body {
   }
   &__pic{
     &-img{
+      
+      border-radius: 10px;
       width:$anketa-width;
       height: 300px;    
     }
