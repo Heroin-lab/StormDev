@@ -1,28 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 * {
+  font-family:'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: url("..//img/pacific-ocean-nature-beach-stormy-beaches-92i8.jpg") center center/cover no-repeat;
   min-height: 754px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .questions .container {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-.questions .container .questions__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.questions .questions__wrapper{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:justify;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
   align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  max-width: 1220px;
+  margin: 0 auto;
 }
 
 .questions .container .questions__wrapper .logo {
@@ -32,19 +37,25 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+          margin-top: 10px;
 }
 
 .questions .container .questions__wrapper .logo__img {
-  width: 114px;
-  height: 103px;
+  width: 100px;
+  height: 100px;
 }
 
 .questions .container .questions__wrapper .logo__title {
-  margin-top: 30px;
+  align-self: center;
+  margin-left: 5px;
   color: #333333;
   font-style: italic;
   font-weight: bold;
   font-size: 36px;
+}
+
+.questions .container .questions__wrapper .nav {
+  margin-top: 15px;
 }
 
 .questions .container .questions__wrapper .nav ul {
@@ -67,7 +78,7 @@ body {
   display: inline-block;
   font-weight: bold;
   font-size: 24px;
-  padding: 24px 10px 20px;
+  padding: 24px 10px 15px;
   margin: 0 6px;
   border-bottom: 4px solid transparent;
   -webkit-transition: all 0.5s;
@@ -86,8 +97,8 @@ body {
 
 .questions__select-block {
   display: flex;
-  align-items: center;
-  max-width: 1000px;
+  margin: auto;
+  max-width: 1176px;
   margin-top: 30px;
 }
 
@@ -125,13 +136,17 @@ body {
   font-size: 15px;
 }
 
+.questions .container .question__block{
+  display: flex;
+  justify-content: center;
+}
+
 .questions .container .project {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: start; /* */
-  align-items: center; /* */
   width: 1176px;
   height: 560px;
   margin-top: 50px;
