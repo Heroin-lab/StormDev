@@ -35,7 +35,7 @@
 .logo__img{width:100px;height:100px}
 .logo__title{align-self: center; margin-left: 5px;color:#333333;font-style:italic;font-weight:bold;font-size:36px}
 .nav__list{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.nav__list-item{font-weight:bold;font-size:24px;padding:24px 10px 15px;color:#333333;margin:0 6px;border-bottom:4px solid transparent;-webkit-transition:all 0.5s;transition:all 0.5s}
+.nav__list-item{font-weight:bold;font-size:24px;padding:24px 10px px;color:#333333;margin:0 6px;border-bottom:4px solid transparent;-webkit-transition:all 0.5s;transition:all 0.5s}
 .nav__list-item:hover{border-bottom:2px solid #00A4E5}
 .row{
     display:-webkit-box;
