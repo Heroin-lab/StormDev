@@ -28,6 +28,11 @@ function reqCall() {
     if (extensionFilter.value === 'json' || extensionFilter.value === 'csv' 
     || extensionFilter.value === 'xml' || extensionFilter.value === 'yaml') {
         getReq(extensionFilter.value);
+        var config = {
+            'theme':themeName,
+            'extention': extensionFilter.value
+        }
+        localStorage.setItem('config',JSON.stringify(config));
     } else {
         console.log('Слыш! ТЕБЕ СЮДА НЕЛЬЗЯ');
     }
@@ -35,8 +40,23 @@ function reqCall() {
 
 function selectTheme() {
     themeName = themeFilter.value;
-    getReq(extensionFilter.value);  
+    getReq(extensionFilter.value); 
+    var config = {
+        'theme':themeName,
+        'extention': extensionFilter.value
+    }
+    localStorage.setItem('config',JSON.stringify(config));
 }
+
+function onload(){
+    var config = JSON.parse(localStorage.getItem('config'))
+    if(config){
+        themeName = config.theme;
+        themeFilter.value = config.theme;
+        extensionFilter.value = config.extention
+    }
+}
+document.addEventListener('DOMContentLoaded', onload);
 
 var xmlParser = function(reqResult) {
     var objArrays = reqResult.quest;
@@ -114,4 +134,4 @@ function clearTemplate() {
     }
 }
 
-getReq('json');
+getReq(JSON.parse(localStorage.getItem('config')).extention);
