@@ -134,4 +134,9 @@ function clearTemplate() {
     }
 }
 
-getReq(JSON.parse(localStorage.getItem('config')).extention);
+if (JSON.parse(localStorage.getItem('config')) == null || JSON.parse(localStorage.getItem('config')) == undefined){
+    getReq('json')
+} else {
+    getReq(JSON.parse(localStorage.getItem('config')).extention);
+}
+
