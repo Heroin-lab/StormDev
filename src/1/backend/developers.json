@@ -2,10 +2,10 @@
 	"developer1": {
 		"name": "Kirill",
 		"last_name": "Serkin",
-		"birthday": "1.04.2001",
+		"birthday": "2002-04-01",
 		"age": "20",
 		"city": "Kharkiv",
-		"cellphone": "(099) 775-87-70",
+		"cellphone": "(099) 775-8770",
 		"email": "vip.serkin@gmail.com",
 		"hobby": "Music, reading",
 		"avatar": "kirill.jpg"
@@ -13,10 +13,10 @@
 	"developer2": {
 		"name": "Daniel",
 		"last_name": "Kubariev",
-		"birthday": "29.05.1992",
+		"birthday": "1992-05-29",
 		"age": "28",
 		"city": "Kharkiv",
-		"cellphone": "(093) 273-92-12",
+		"cellphone": "(093) 273-9212",
 		"email": "danielkubariev@gmail.com",
 		"hobby": "Mountain climbing,video games, crossfit, football,tv-shows",
 		"avatar": "Dan.jpg"
@@ -24,10 +24,10 @@
 	"developer3": {
 		"name": "Tanya",
 		"last_name": "Gubanova",
-		"birthday": "12.06.1996",
+		"birthday": "1996-06-12",
 		"age": "24",
 		"city": "Kharkiv",
-		"cellphone": "(066) 932-52-05",
+		"cellphone": "(066) 932-5205",
 		"email": "tanuha869@gmail.com",
 		"hobby": "Fishing, traveling",
 		"avatar": "Tanya.jpg"
@@ -35,10 +35,10 @@
 	"developer4": {
 		"name": "Alexandra",
 		"last_name": "Koshlich",
-		"birthday": "13.04.1998",
+		"birthday": "1998-04-13",
 		"age": "22",
 		"city": "Kharkiv",
-		"cellphone": "(095) 171-13-000",
+		"cellphone": "(095) 171-1300",
 		"email": "arealsasha@gmail.com",
 		"hobby": "Reading books, listening music, open to new experience, no taboo person",
 		"avatar": "Sasha.jpg"
