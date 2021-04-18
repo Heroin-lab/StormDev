@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Teams</title>
+    <title>Storm Team</title>
     <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css/modalWindow.css">
 </head>
 <body>
 
@@ -13,33 +14,117 @@
         <div class="container">
             <div class="questions__wrapper">
                 <div class="logo">
-                    <img src="img/logo.png" alt="logo" class="logo__img">
-                    <div class="logo__title">Storm Teams</div>
+                    <img src="img/logo_n.png" alt="logo" class="logo__img">
+                    <div class="logo__title">Storm Team</div>
                 </div>
                 <div class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item">HOME</li>
-                        <li class="nav__list-item">QUESTIONS</li>
-                        <li class="nav__list-item">ABOUT</li>
+                        <li class="nav__list-item"><a href="../1/frontend/index.html">HOME</a></li>
+                        <li class="nav__list-item"><a href="../2/question.html">QUESTIONS</a></li>
+                        <li class="nav__list-item"><a href="../3/about.html">ABOUT</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="questions__select">
-                <select name="select" class="select">
-                    <option class="select__value" value="value1">Select file system</option>
-                    <option class="select__value" value="value2">Select questions theme</option>
-                    <!-- <option class="select__value" value="value3">Значение 3</option> -->
-                </select>            
-            </div>
-            <div class="project">
-                <img src="img/Bitmap.png" alt="" class="project__img">
-                <div class="project__item">
-                    <div class="project__title">PROJECT AND CONSTRUCTION MANAGEMENT</div>
-                    <div class="project__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolore ab quo iure laudantium nostrum, nam excepturi magni officia ex exercitationem illo. Deleniti, esse nam?</div>
+            <div class="questions__select-block">
+                <div class="questions__select">
+                    <select name="select" class="select">
+                        <option class="select__value" value="json">JSON file system</option>
+                        <option class="select__value" value="csv">CSV file system</option>
+                        <option class="select__value" value="xml">XML file system</option>
+                        <option class="select__value" value="yaml">YAML file system</option>
+                    </select>            
+                </div>
+                <div class="questions__select">
+                    <select name="select" class="select theme">
+                        <option class="select__value" value="all">All</option>
+                        <option class="select__value" value="JS">JavaScript</option>
+                        <option class="select__value" value="HTML">Html</option>
+                        <option class="select__value" value="CSS">Css</option>
+                        <option class="select__value" value="OOP">OOP</option>
+                        <option class="select__value" value="REACT">React</option>
+                    </select>           
+                </div>
+
+                <!-- <input type="checkbox" id="modal"> -->
+                <lable class="question__popup-open" for="modal">&#10010;</lable> 
+                
+                <div class="popup__modal popup_opacity-zero">
+                    <div class="popup__modal-window popup__create-quest">
+                        <div class="popup__header">
+                            <p class="popup__modal-question">Question:</p>
+                            <h2 class="popup__close-button" for="modal">&times;</h2>
+                        </div>
+                        <textarea class="popup__modal-input popup__que" wrap="soft" maxlength="255" type="text"></textarea>
+                            <p class="popup__modal-question">Theme:</p>
+                        <select class="popup__modal-input popup_theme-select" name="theme" id="select">
+                            <option value="JS">JS</option>
+                            <option value="CSS">CSS</option>
+                            <option value="HTML">HTML</option>
+                            <option value="OOP">OOP</option>
+                            <option value="REACT">REACT</option>
+                        </select>
+                            <p class="popup__modal-question">Answer:</p>
+                        <div class="popup__modal-rad">
+                            <input class="popup__modal-radio radio-True" type="radio" name="radio" value="true" onclick="changeRadio(value)"> True |
+                            <input class="popup__modal-radio radio-False" type="radio" name="radio" value="false" onclick="changeRadio(value)" checked> False
+                        </div>
+                            <p class="popup__modal-question">File system:</p>
+                        <div class="popup__modal-check">
+                            <input class="popup__modal-checkbox checkJson" type="checkbox" name="checkbox"> JSON  |
+                            <input class="popup__modal-checkbox checkCsv" type="checkbox" name="checkbox"> CSV  | 
+                            <input class="popup__modal-checkbox checkXml" type="checkbox" name="checkbox"> XML  |
+                            <input class="popup__modal-checkbox checkYaml" type="checkbox" name="checkbox"> YAML  |
+                        </div>
+                        <div class="popup__modal-btn">
+                            <button class="popup__modal-button1">Create</button>
+                            <button class="popup__modal-button2">Cancel</button>
+                        </div>
+                        <p class="popup__modal-alert"></p>
+                    </div>
+
+                    <div class="popup__modal-window popup__succes-create">
+                        <p class="popup__modal-question">Your question successfully created!</p>
+                    </div>
+
+                    <div class="popup__modal-window popup__question-delete">
+                        <p class="popup__modal-question">Are you sure you want delete this question?</p>
+                        <div class="popup__modal-btn">
+                            <button class="popup__modal-button-delete">Yes! Delete!</button>
+                            <button class="popup__modal-button2 popup__modal-button-close">Cancel</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+        <div class="question__block">
+            <div class="if-empty">
+                <h1>There is no questions!</h1>
+            </div>
+            <div class="project">
+                <template class="sample">
+                    <div class="project__question-block">
+                        <img src="img/Bitmap.png" alt="" class="project__img">
+                        <div class="project__item">
+                            <div class="project__title"></div>
+                            <div class="project__text-container">
+                                <div class="project__text">
+                                </div>
+                                <button class="project__delete-button" onclick="queDel(value)">&times;</button>
+                            </div>
+                            <div class="project__answear-date">
+                                <h4 class="project__answer"></h4>
+                                <div class="project__date"></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
         </div>
+    </div>
+
     </section>
-    
+    <script src="js/serverCalls.js"></script>
+    <script src="js/fileEditor.js"></script>
+    <script src="js/popup-validator.js"></script>
 </body>
 </html>

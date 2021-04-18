@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 * {
+  font-family:'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -9,18 +13,21 @@ body {
 }
 
 .questions .container {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-.questions .container .questions__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.questions .questions__wrapper{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:justify;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+  align-items: center;
+  max-width: 1220px;
+  margin: 0 auto;
 }
 
 .questions .container .questions__wrapper .logo {
@@ -30,19 +37,25 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+          margin-top: 10px;
 }
 
 .questions .container .questions__wrapper .logo__img {
-  width: 114px;
-  height: 103px;
+  width: 100px;
+  height: 100px;
 }
 
 .questions .container .questions__wrapper .logo__title {
-  margin-top: 30px;
+  align-self: center;
+  margin-left: 5px;
   color: #333333;
   font-style: italic;
   font-weight: bold;
   font-size: 36px;
+}
+
+.questions .container .questions__wrapper .nav {
+  margin-top: 15px;
 }
 
 .questions .container .questions__wrapper .nav ul {
@@ -65,8 +78,7 @@ body {
   display: inline-block;
   font-weight: bold;
   font-size: 24px;
-  padding: 24px 10px 20px;
-  color: #333333;
+  padding: 24px 10px 15px;
   margin: 0 6px;
   border-bottom: 4px solid transparent;
   -webkit-transition: all 0.5s;
@@ -74,22 +86,49 @@ body {
   cursor: pointer;
 }
 
+.questions .container .questions__wrapper .nav ul .nav__list-item a {
+  color: #333333;
+  text-decoration: none;
+}
+
 .questions .container .questions__wrapper .nav ul .nav__list-item:hover {
   border-bottom: 2px solid #00A4E5;
 }
 
-.questions .container .questions__select {
+.questions__select-block {
+  display: flex;
+  margin: auto;
+  max-width: 1176px;
   margin-top: 30px;
 }
 
+#modal {
+  display: none;
+}
+
+.question__popup-open {
+  margin-left: 625px;
+  font-size: 32px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.question__popup-open:hover {
+  color: #333333;
+}
+
+.questions .container .questions__select:nth-last-child(3) {
+  margin-left: 5px;
+} /* */
+
 .questions .container .questions__select .select {
-  display: block;
   padding: 10px;
   font-size: 16px;
   font-weight: 700;
   width: 250px;
   height: 47px;
-  border: 2px solid;
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -97,14 +136,43 @@ body {
   font-size: 15px;
 }
 
+.questions .container .question__block{
+  display: flex;
+  justify-content: center;
+}
+
 .questions .container .project {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
+  justify-content: start; /* */
   width: 1176px;
-  height: 360px;
+  height: 500px;
   margin-top: 50px;
+  border-radius: 3px; /* */
   background-color: #ffffff;
+  overflow-y: scroll;
+}
+
+.project__question-block { /* */
+  display: flex;
+  min-width: 1155px;
+  max-height: 160px;
+  margin: 2px 2px 2px 2px;
+  border-radius: 3px;
+  border: 1px solid rgb(215, 215, 215);
+  background-color: rgb(250, 250, 250);
+} /* */
+
+.project__answer {
+  max-width: 50px;
+}
+
+.if-empty {
+  display: none;
+  position: absolute;
+  margin: 260px 0 0 488px; 
 }
 
 .questions .container .project__img {
@@ -119,6 +187,17 @@ body {
   margin-top: 20px;
 }
 
+.questions .container .project__item .project__answear-date {
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+.questions .container .project__item .project__answear-date .project__date {
+  max-width: 130px;
+  max-height: 18px;
+  margin-left: 810px;
+}
+
 .questions .container .project__item .project__title {
   color: #48555B;
   font-weight: bold;
@@ -127,8 +206,23 @@ body {
 }
 
 .questions .container .project__item .project__text {
+  width: 960px;
   margin-top: 15px;
   font-size: 13px;
   line-height: 23px;
+  color: #485b49;
+}
+.questions .container .project__item .project__text-container{
+  display: flex;
+  align-items: center;
+}
+
+.questions .container .project__item .project__delete-button {
+  position: relative;
+  justify-self: end;
+  margin-left: 30px;
+  font-size: 45px;
+  line-height: 25px;
   color: #48555B;
+  cursor: pointer;
 }
