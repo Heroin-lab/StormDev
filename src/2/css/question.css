@@ -10,6 +10,7 @@
 body {
   background: url("..//img/pacific-ocean-nature-beach-stormy-beaches-92i8.jpg") center center/cover no-repeat;
   min-height: 754px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .questions .container {
@@ -17,6 +18,7 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
 
 .questions .questions__wrapper{
   display:-webkit-box;
