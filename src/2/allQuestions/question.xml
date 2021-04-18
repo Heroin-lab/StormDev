@@ -1,33 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?><quest>
-  <id>1</id>
   <id>2</id>
-  <id>3</id>
   <id>4</id>
   <id>5</id>
   <id>6</id>
-  <theme>REACT</theme>
   <theme>JS</theme>
-  <theme>REACT</theme>
   <theme>JS</theme>
   <theme>CSS</theme>
-  <theme>REACT</theme>
-  <quesText>XML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
-  <quesText>XML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
+  <theme>CSS</theme>
   <quesText>XML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
   <quesText>XML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
   <quesText>YAML ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
-  <quesText>Test</quesText>
-  <correctAnsw>true</correctAnsw>
+  <quesText>JSON ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga consectetur itaque architecto blanditiis dolo</quesText>
   <correctAnsw>false</correctAnsw>
   <correctAnsw>false</correctAnsw>
+  <correctAnsw>true</correctAnsw>
   <correctAnsw>false</correctAnsw>
-  <correctAnsw>true</correctAnsw>
-  <correctAnsw>true</correctAnsw>
-  <date>14.03.2021 4:9</date>
   <date>14.03.2021 4:32</date>
-  <date>14.03.2021 10:8</date>
   <date>14.03.2021 10:16</date>
   <date>14.03.2021 10:17</date>
-  <date>14.03.2021 10:17</date>
-  <date>14.03.2021 17:14</date>
+  <date>18.03.2021 20:14</date>
+  <date>18.03.2021 23:45</date>
 </quest>

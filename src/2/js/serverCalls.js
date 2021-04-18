@@ -9,6 +9,7 @@ themeFilter.addEventListener('change', selectTheme);
 extensionFilter.addEventListener('change', reqCall);
 
 var getReq = function(fileExtension) {
+    return new Promise(function(resolve,reject){
     var result;
     xhr.open('GET', requestURL + fileExtension);
     xhr.onload = function() {
@@ -20,8 +21,10 @@ var getReq = function(fileExtension) {
         } else if (fileExtension === 'yaml'){
             checkForEmpty(result.questions);
         }
+        return resolve(xhr.responseText);
     }
     xhr.send();
+    });
 }
 
 function reqCall() {
