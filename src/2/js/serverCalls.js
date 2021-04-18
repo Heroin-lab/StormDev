@@ -139,4 +139,3 @@ if (JSON.parse(localStorage.getItem('config')) == null || JSON.parse(localStorag
 } else {
     getReq(JSON.parse(localStorage.getItem('config')).extention);
 }
-
