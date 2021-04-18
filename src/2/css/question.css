@@ -174,7 +174,7 @@ body {
 .if-empty {
   display: none;
   position: absolute;
-  margin: 300px 0 0 0; 
+  margin: 260px 0 0 0; 
 }
 
 .questions .container .project__img {
