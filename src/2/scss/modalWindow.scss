@@ -1,46 +1,116 @@
+
 * {
     box-sizing: border-box;
-}
-.about__hidden {
-    .about__modal {
-        width: 400px;
-        height: 320px;
-        background-color: rgb(156, 210, 247);
-        border: 2px solid #000000;
-        .about__modal-window {
-            width: 300px;
-            height: 250px;
-            display: block;
-            margin: 0 auto;
-            margin-top: 20px;
-            text-align: center;
-            .about__modal-question {
-                margin: 5px 0;
-                font-size: 18px;
-                font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+  .questions {
+      .container {
+          .questions__select-block {
+                .popup__modal {
+                    display: none;
+                    position: fixed;
+                    align-items: center;
+                    justify-content: center;
+                    top: 0px; bottom: 0px;
+                    left: 0px; right: 0px;
+                    z-index: 100;
+                    overflow: auto;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.4);
+                        .popup__modal-window {
+                            display: flex;
+                            position: relative;
+                            flex-direction: column;
+                            align-items: center;
+                            min-width: 430px;
+                            max-height: 600px;
+                            padding: 5px 2px 10px 2px;
+                            background-color: #ffffff;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                            border: 1px solid #a7a7a7;
+                            border-radius: 5px;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            .popup__create-quest {
+                              bottom: 920px;
+                            }
+                                .popup__header {
+                                  display: flex;
+                                    .popup__modal-question, .popup__succes-create {
+                                        color: rgb(26, 182, 26);
+                                    }
+                                    .popup__close-button {
+                                      position: absolute;
+                                      margin-left: 275px;
+                                      line-height: 24px;
+                                      font-size: 46px;
+                                      color: #ffffff;;
+                                      cursor: pointer;
+                                    }
+                                    .popup__close-button:hover {
+                                      color: #333333;
+                                    }
+                                }
+                                .popup__modal-input {
+                                  min-width: 350px;
+                                  min-height: 30px;
+                                  background-color: #f7fcff;
+                                  border-radius: 5px;
+                                  border: 1px solid #a7a7a7;;
+                                }
+                                .popup__que {
+                                  height: 120px;
+                                  padding: 3px 3px 10px 3px;
+                                  resize: none;
+                                  cursor: text;
+                                }
+                                .popup__modal-question {
+                                    margin: 10px 0 10px 0;
+                                    text-transform: uppercase;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    padding-top: 10px;
+                                }
+                                .popup__modal-rad {
+                                  margin-bottom: 10px;
+                                }
+                                .popup__modal-check {
+                                  margin: 0 5px 15px 5px;
+                                  .popup__modal-checkbox   {
+                                    cursor: pointer;
+                                    margin: 5px 0 15px 5px;
+                                  }
+                                }
+                                .popup__modal-btn .popup__modal-button1,
+                                .popup__modal .popup__modal-window .popup__modal-btn .popup__modal-button2, .popup__modal-button-delete  {
+                                 padding: 5px 10px 5px 10px;
+                                 text-transform: uppercase;
+                                 border-radius: 5px;
+                                 border: 1px solid #a7a7a7;
+                                 background-color: #f3f3f396;
+                               }
+                               .popup__modal-btn .popup__modal-button2 {
+                                margin-left: 10px;
+                              }
+                              .popup__modal-alert {
+                                height: 24px;
+                                padding: 5px 0 25px 0;
+                                font-size: 16px;
+                                color: red;
+                              }
+                          }
+                          .popup__succes-create {
+                            display: none;
+                            max-height: 150px;
+                          }
+                          .popup__question-delete {
+                            display: none;
+                            padding: 20px 20px 20px 20px;
+                          }
+                      }
+                }
             }
-            .about__modal-input {
-                background-color: rgb(156, 210, 247);
-            max-width: 250px;            
-        }
-            .about__modal-radio {
-                margin: 10px 5px;
-            }
-            .about__modal-checkbox { 
-                margin: 10px 5px;              
-            }
-            .about__modal-btn {
-               margin: 20px 0;
-               .about__modal-button1,.about__modal-button2 {
-                   width: 120px;
-                   height: 25px;
-                   border: 1px solid #000000;
-                   background-color: #00a4e596;
-               }
-               .about__modal-button2 {
-                   margin-left: 10px;
-               }
-            }
-        }
-    }
-}
+      }
+  }
+ 
