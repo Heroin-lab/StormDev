@@ -51,7 +51,7 @@ function questionCreate () {
       } else if (reqCounter === 4){
           reqCounter = 0;
           setTimeout(function(){
-              reqCall();
+              reqCall(); // Server calls 30 строка
           }, 100);
       }                      
    }, 100)

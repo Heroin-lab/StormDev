@@ -13,16 +13,16 @@ var jsonCheck = document.querySelector('.checkJson');
 var xmlCheck = document.querySelector('.checkXml');
 var yamlCheck = document.querySelector('.checkYaml');
 
-popupOpen.addEventListener('click', openPopup); // слушатель для открытия модального окна. Можно, возможно даже нужно убрать нахрен.
+popupOpen.addEventListener('click', openPopup); 
 popupXCLose.addEventListener('click', closePopupBtn); 
-popupCloseButton.addEventListener('click', closePopupBtn); // слушатель для закртия от кнопки
-popupWindow.addEventListener('mousedown', closePopup);  // слушатель для закрытия по клику вне окна
+popupCloseButton.addEventListener('click', closePopupBtn);
+popupWindow.addEventListener('mousedown', closePopup);  
 createQuestion.addEventListener('click', questionCheckBoxes);
 
 var queValue;
 
 function openPopup() {
-    popupWindow.style.display = 'flex'; // Раскрывает окно (меняет его стиль с none на flex)
+    popupWindow.style.display = 'flex'; 
     succesCreate.style.display = 'flex';
     succesWindow.style.display = 'none';
     setCheckBox();
@@ -65,13 +65,13 @@ function setCheckBox() {
 function closePopupBtn() {
     popupDeleteWindow.style.display = 'none';
     document.querySelector('.popup__create-quest').style.bottom = '920px';
-    popupWindow.style.display = 'none'; // закрывает окно кнопкой (меняет стиль на none)
+    popupWindow.style.display = 'none'; 
     setCheckBox()
 }
 
 function closePopup (e) {
     if (e.target == popupWindow) {
-        popupWindow.style.display = 'none'; //Закрывает модалку при клике вне окна
+        popupWindow.style.display = 'none'; 
         document.querySelector('.popup__create-quest').style.bottom = '920px';
         popupDeleteWindow.style.display = 'none';
         setCheckBox()
@@ -111,7 +111,7 @@ function validator (arr) {
         succesCreation();
     }
 }
-
+// очистка модального окна и вывод модалки с успехом
 function succesCreation() {
     document.querySelector('.checkCsv').checked = false;
     document.querySelector('.checkJson').checked = false;
@@ -129,7 +129,7 @@ function succesCreation() {
     }, 1000)
 }
 
-
+// открытие окна
 function queDel(val) {
     succesCreate.style.display = 'none';
     popupWindow.style.display = 'flex';
@@ -141,7 +141,7 @@ function queDel(val) {
     cancleDeleteWindow.onclick = closePopupBtn;
     deleteQuestion.onclick = queDeleteAccept;
 }
-
+// отправка запроса на сервер
 function queDeleteAccept () {
     var extension = document.querySelector('.select').value;
     var data = {
@@ -149,7 +149,7 @@ function queDeleteAccept () {
     }
     postReq(data, 'del' + extension);
     setTimeout(function (){
-        reqCall();
+        reqCall(); // get ServerCalls 30 str
         closePopupBtn();
     }, 50);
 }

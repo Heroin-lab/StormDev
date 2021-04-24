@@ -11,7 +11,7 @@ extensionFilter.addEventListener('change', reqCall);
 var getReq = function(fileExtension) {
     return new Promise(function(resolve,reject){
     var result;
-    xhr.open('GET', requestURL + fileExtension);
+    xhr.open('GET', requestURL + fileExtension); // onreadystatechange
     xhr.onload = function() {
         result = JSON.parse(xhr.response);
         if (fileExtension === 'json' || fileExtension === 'csv'){
@@ -26,7 +26,7 @@ var getReq = function(fileExtension) {
     xhr.send();
     });
 }
-
+// Выбор файловой системы
 function reqCall() {
     if (extensionFilter.value === 'json' || extensionFilter.value === 'csv' 
     || extensionFilter.value === 'xml' || extensionFilter.value === 'yaml') {
@@ -40,7 +40,7 @@ function reqCall() {
         console.log('Слыш! ТЕБЕ СЮДА НЕЛЬЗЯ');
     }
 }
-
+// Выбор темы
 function selectTheme() {
     themeName = themeFilter.value;
     getReq(extensionFilter.value); 
@@ -61,6 +61,7 @@ function onload(){
 }
 document.addEventListener('DOMContentLoaded', onload);
 
+// Парсер XML
 var xmlParser = function(reqResult) {
     var objArrays = reqResult.quest;
     var buffer = [];
@@ -81,6 +82,7 @@ var xmlParser = function(reqResult) {
     }
 }
 
+// Проверка на пустоту полученных данных
 function checkForEmpty (resFromServ) {
     var queIfEmpty = document.querySelector('.if-empty');
     if (resFromServ !== null && resFromServ !== undefined && resFromServ.length !== 0 && typeof resFromServ !== 'string'){
@@ -94,7 +96,7 @@ function checkForEmpty (resFromServ) {
         themeDecoder([]);
     }
 }
-
+// Расшифровщик тем
 function themeDecoder(serverRes){
     var container = [];
     
@@ -113,7 +115,7 @@ function themeDecoder(serverRes){
         checkForEmpty('empty');
     }
 };
-
+// Вывод всех вопросов
 var templateParser = function(arrObjects) {
     clearTemplate();
     for (var i = 0; i < arrObjects.length; i++){
@@ -127,7 +129,7 @@ var templateParser = function(arrObjects) {
         document.querySelector(".project").appendChild(copyHTML);
     } 
 }
-
+// Чистка окна
 function clearTemplate() {
     var count = document.querySelector('.project').childElementCount;
     for (var k = 0; k < count - 1; k++){
